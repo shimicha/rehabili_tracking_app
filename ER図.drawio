@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-09T05:55:11.901Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="ZtXG1-qjpFVoED235_Q0" version="22.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-09T06:58:41.216Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="Y4JK__IZFhcbYnp2IGMP" version="22.0.4" type="github">
   <diagram name="ページ1" id="On6gERL7_XT_9iavyQnc">
     <mxGraphModel dx="1722" dy="954" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -274,7 +274,7 @@
             <mxRectangle width="30" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="5-qIK-grg63vB4EayWd0-167" value="month&amp;nbsp;" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;" parent="5-qIK-grg63vB4EayWd0-165" vertex="1">
+        <mxCell id="5-qIK-grg63vB4EayWd0-167" value="month&amp;nbsp; (date)" style="shape=partialRectangle;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;whiteSpace=wrap;html=1;" parent="5-qIK-grg63vB4EayWd0-165" vertex="1">
           <mxGeometry x="30" width="240" height="30" as="geometry">
             <mxRectangle width="240" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -531,8 +531,8 @@
         <mxCell id="ipxZYC3nAlw-u18Ei3s8-1" value="progress_keep (text)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" parent="1" vertex="1">
           <mxGeometry x="554.5" y="1047" width="130" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="7PLq_4hnu8zICcjoOlE1-4" value="date" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="550.5" y="1095" width="50" height="30" as="geometry" />
+        <mxCell id="7PLq_4hnu8zICcjoOlE1-4" value="date (date)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="552.5" y="1095" width="80" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
