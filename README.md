@@ -112,4 +112,4 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
    →  Active Record Encryptionを設定して、個人情報や医療データの暗号化し、センシティブな情報を安全に保管する。
 
 ER図
-[![Image from Gyazo](https://i.gyazo.com/81048ffeafd36f97d3d7dec4d3920269.png)](https://gyazo.com/81048ffeafd36f97d3d7dec4d3920269)
+[![Image from Gyazo](https://i.gyazo.com/c625e35421c1280804d14887476ae55d.png)](https://gyazo.com/c625e35421c1280804d14887476ae55d)
