@@ -110,3 +110,6 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
 
 ⚪️セキュリティとプライバシー
    →  Active Record Encryptionを設定して、個人情報や医療データの暗号化し、センシティブな情報を安全に保管する。
+
+ER図
+[![Image from Gyazo](https://i.gyazo.com/156d217f34204aa12640ddb458b7b01b.png)](https://gyazo.com/156d217f34204aa12640ddb458b7b01b)
