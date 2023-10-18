@@ -1,0 +1,15 @@
+ ././install-sh -c -d '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/lib'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libsqlite3.la '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/lib'
+libtool: install: /usr/bin/install -c .libs/libsqlite3.lai /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/lib/libsqlite3.la
+libtool: install: /usr/bin/install -c .libs/libsqlite3.a /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/lib/libsqlite3.a
+libtool: install: chmod 644 /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/lib/libsqlite3.a
+libtool: install: ranlib /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/lib/libsqlite3.a
+ ././install-sh -c -d '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/bin'
+  /bin/sh ./libtool   --mode=install /usr/bin/install -c sqlite3 '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/bin'
+libtool: install: /usr/bin/install -c sqlite3 /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/bin/sqlite3
+ ././install-sh -c -d '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/include'
+ /usr/bin/install -c -m 644 sqlite3.h sqlite3ext.h '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/include'
+ ././install-sh -c -d '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/share/man/man1'
+ /usr/bin/install -c -m 644 sqlite3.1 '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/share/man/man1'
+ ././install-sh -c -d '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/lib/pkgconfig'
+ /usr/bin/install -c -m 644 sqlite3.pc '/Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/2.6.0/gems/sqlite3-1.6.7/ports/arm64-apple-darwin22.5.0/sqlite3/3.43.2/lib/pkgconfig'
