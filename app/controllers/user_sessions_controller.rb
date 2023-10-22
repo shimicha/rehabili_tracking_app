@@ -4,7 +4,7 @@ class UserSessionsController < ApplicationController
   def create
     @user = login(params[:email], params[:password], params[:password_digest])
     if @user
-      redirect_back_or_to "#"
+      redirect_back_or_to new_top_path
     else
       render :new
     end
@@ -12,6 +12,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to "#"
+    redirect_to login_path
   end
 end

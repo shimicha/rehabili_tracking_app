@@ -10,10 +10,14 @@
   </head>
 
   <body>
+   <% if logged_in? %>
     <%= render 'shared/header' %>
-      <%= yield %>
-  <% unless current_page?(privacy_policy_path) || current_page?(terms_of_service_path) %>
+   <% else %>
+    <%= render 'shared/before_login_header' %>
+   <% end %>
+    <%= yield %>
+   <% unless current_page?(privacy_policy_path) || current_page?(terms_of_service_path) %>
     <%= render 'shared/footer' %>
-  <% end %>
+   <% end %>
   </body>
 </html>
