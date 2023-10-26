@@ -16,8 +16,6 @@
     <%= render 'shared/before_login_header' %>
    <% end %>
     <%= yield %>
-   <% unless current_page?(privacy_policy_path) || current_page?(terms_of_service_path) %>
     <%= render 'shared/footer' %>
-   <% end %>
   </body>
 </html>
