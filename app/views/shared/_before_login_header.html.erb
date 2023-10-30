@@ -1,12 +1,12 @@
 <header style="width: 100%;">
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
 
-    <%= link_to 'rehabili tracking app', "#", class: 'navbar-brand' %>
+    <%= link_to 'rehabili tracking app', root_path, class: 'navbar-brand' %>
 
       <div class="navbar-nav ml-auto main-nav align-items-center ">
-          <%= link_to '新規作成ページ', '#', class: 'nav-link' %>
-          <%= link_to 'ログインページ', '#', class: 'nav-link' %>
-          <%= link_to 'TOPページ', '#', class: 'nav-link' %>
+          <%= link_to '新規作成ページ', new_user_path, class: 'nav-link' %>
+          <%= link_to 'ログインページ', login_path, class: 'nav-link' %>
+          <%= link_to 'TOPページ', "#", class: 'nav-link' %>
       </div>
   </nav>
 </header>
