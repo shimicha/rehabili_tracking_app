@@ -1,0 +1,9 @@
+<h1>投稿の月別最終更新日</h1>
+
+<ul>
+  <% @last_updates.each do |month, last_update| %>
+    <% if last_update %>
+      <li><%= month.strftime('%B %Y') %>: <%= last_update.strftime('%Y-%m-%d %H:%M:%S') %></li>
+    <% end %>
+  <% end %>
+</ul>

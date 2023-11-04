@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   
   resources :users, only: [:new, :create]
   resources :tops, only: [:new]
-
   resources :profiles
+
+  resources :training_menus, only: %i[index new create]
+  resources :posts
+
+  get 'dashboards', to: 'dashboards#index'
 end

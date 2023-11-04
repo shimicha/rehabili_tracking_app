@@ -1,0 +1,13 @@
+<h1><%= @training_menu.title %>に対する新規投稿</h1>
+
+<%= form_with(model: [@training_menu, @post], local: true) do |form| %>
+  <!-- Display the form fields for the post -->
+  <div class="field">
+    <%= form.label :content, "投稿内容" %>
+    <%= form.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "投稿する" %>
+  </div>
+<% end %>
