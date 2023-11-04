@@ -139,6 +139,8 @@ GEM
       sassc (>= 1.11)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    groupdate (6.2.1)
+      activesupport (>= 5.2)
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -329,6 +331,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   font-awesome-sass (~> 5.12.0)
+  groupdate
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener_web
