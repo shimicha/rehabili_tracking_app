@@ -10,7 +10,7 @@ def index
 end
 
 def edit
-    @profile = current_user
+    @profile = current_user.profile
 end
 
 def create
@@ -36,6 +36,6 @@ end
 
 
   def profile_params
-    params.require(:profile).permit(:name, :age, :gender, :icon, :history_of_present_illness, :contraindications, :medical_history, :surgery_history)
+    params.require(:profile).permit(:age, :gender, :icon, :icon_cache, :history_of_present_illness, :contraindications, :medical_history, :surgery_history)
   end
 end

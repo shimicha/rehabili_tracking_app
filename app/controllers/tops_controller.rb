@@ -1,4 +1,5 @@
 class TopsController < ApplicationController
-    skip_before_action :require_login, only: %i[new]
+    skip_before_action :require_login
+    
     def new; end
 end

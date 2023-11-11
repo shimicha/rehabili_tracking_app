@@ -1,5 +1,7 @@
 {
   "name": "rehabili_tracking_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "admin-lte": "^3.2.0"
+  }
 }
