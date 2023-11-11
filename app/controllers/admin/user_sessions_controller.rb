@@ -6,7 +6,7 @@ class Admin::UserSessionsController < Admin::BaseController
   def new; end
 
   def create
-    @user = login(params[:email], params[:password])
+    @user = login(params[:admin_name], params[:password], params[:password_confirmation])
     if @user
       redirect_to "#", success: 'ログインしました'
     else
