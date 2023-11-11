@@ -1,19 +1,30 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
 <div class="login-box">
   <div class="login-logo">
-    <h1>title</h1>
+    <h1>Admin Registration</h1>
   </div>
-  <!-- /.login-logo -->
+
   <div class="card">
     <div class="card-body login-card-body">
 
-      <%= form_with url: admin_login_path, locale: true do |f| %>
+      <%= form_with model: [:admin, @therapist_user], local: true do |f| %>
 
-        <%= f.label :admin_name %>
+        <%= f.label :name %>
         <div class="input-group mb-3">
-          <%= f.text_field :admin_name, class: 'form-control', placeholder: 'Admin Name' %>
+          <%= f.text_field :name, class: 'form-control', placeholder: 'Admin Name' %>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+
+        <%= f.label :email %>
+        <div class="input-group mb-3">
+          <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
@@ -40,10 +51,11 @@
 
         <div class="row">
           <div class="col-12">
-            <%= f.submit 'Login', class: 'btn btn-block btn-primary' %>
+            <%= f.submit 'Register', class: 'btn btn-block btn-primary' %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+</div>
 </div>
