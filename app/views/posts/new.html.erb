@@ -1,13 +1,14 @@
-<h1><%= @training_menu.title %>に対する新規投稿</h1>
-
-<%= form_with(model: [@training_menu, @post], local: true) do |form| %>
-  <!-- Display the form fields for the post -->
-  <div class="field">
-    <%= form.label :content, "投稿内容" %>
-    <%= form.text_area :content %>
-  </div>
-
+<h1>Training Menu Titles</h1>
+<%= form_with model: @post, local: true do |form| %>
+  <ul>
+    <% Array(@titles).each_with_index do |title, index| %>
+      <li>
+        <%= form.label :title, title %>
+        <%= form.text_area :description, id: "comments_#{index}", placeholder: "Enter your comment for #{title}" %>
+      </li>
+    <% end %>
+  </ul>
   <div class="actions">
-    <%= form.submit "投稿する" %>
+    <%= form.submit "Submit All Comments", class: "submit-btn" %>
   </div>
 <% end %>

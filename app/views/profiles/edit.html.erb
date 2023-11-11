@@ -1,20 +1,11 @@
-<% content_for(:title, t('.title')) %>
 <div class="container pt-3">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h1 class="float-left mb-5"><%= t('.title') %></h1>
-      <%= form_with(model: current_user.profile, local: true) do |f| %>
+      <h1 class="float-left mb-5">title</h1>
+      <%= form_with model: current_user.profile, local: true do |f| %>
         <table class="table">
           <tr>
-            <th scope="row"><%= User.human_attribute_name(:name) %></th>
-            <td><%= f.text_field :name %></td>
-          </tr>
-          <tr>
-            <th scope="row"><%= User.human_attribute_name(:age) %></th>
-            <td><%= f.text_field :age %></td>
-          </tr>
-          <tr>
-            <th scope="row"><%= User.human_attribute_name(:gender) %></th>
+            <th scope="row">gender</th>
             <td>
               <%= f.label :man %>
               <%= f.radio_button :gender, :man %>
@@ -23,29 +14,36 @@
             </td>
           </tr>
           <tr>
-            <th scope="row"><%= User.human_attribute_name(:history_of_present_illness) %></th>
+            <th scope="row">age</th>
+            <td><%= f.text_field :age %></td>
+          </tr>
+          <tr>
+            <th scope="row">history_of_present_illness</th>
             <td><%= f.text_field :history_of_present_illness %></td>
           </tr>
           <tr>
-            <th scope="row"><%= User.human_attribute_name(:contraindications) %></th>
+            <th scope="row">contraindications</th>
             <td><%= f.text_field :contraindications %></td>
           </tr>
           <tr>
-            <th scope="row"><%= User.human_attribute_name(:medical_history) %></th>
+            <th scope="row">medical_history</th>
             <td><%= f.text_field :medical_history %></td>
           </tr>
           <tr>
-            <th scope="row"><%= User.human_attribute_name(:surgery_history) %></th>
+            <th scope="row">surgery_history</th>
             <td><%= f.text_field :surgery_history %></td>
           </tr>
           <tr>
-            <th scope="row"><%= User.human_attribute_name(:icon) %></th>
+            <th scope="row">icon</th>
             <td>
-              <%= f.file_field :icon, class: "form-control", accept: 'image/*' %>
+              <%= f.label :icon %>
+              <%= f.file_field :icon, onchange: 'previewImage()', class: 'form-control mb-3', accept: 'image/*' %>
               <%= f.hidden_field :icon_cache %>
-              <% if current_user.profile.icon.present? %>
-                <%= image_tag current_user.profile.icon.url, class: 'rounded-circle mt-3', size: '50x50' %>
-              <% end %>
+            </td>
+            <td>
+              <%= image_tag @profile.icon.url,
+                  id: 'preview',
+                  size: '200x200', class: 'rounded-circle' %>
             </td>
           </tr>
         </table>
