@@ -6,8 +6,9 @@ class Admin::UserSessionsController < Admin::BaseController
   def new; end
 
   def create
-    @user = login(params[:admin_name], params[:password], params[:password_confirmation])
-    if @user
+    @user = TherapistUser.find_by(name: params[:name])
+
+    if @user && @user.authenticate(params[:password])
       redirect_to "#", success: 'ログインしました'
     else
       flash.now[:danger] = 'ログインに失敗しました'

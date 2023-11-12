@@ -1,5 +1,5 @@
 class TherapistUser < ApplicationRecord
-    authenticates_with_sorcery!
+    has_secure_password
 
 
     validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
