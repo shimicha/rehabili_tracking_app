@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2023_11_11_083915) do
   create_table "therapist_users", force: :cascade do |t|
     t.string "name"
     t.string "email", null: false
-    t.string "crypted_password"
+    t.string "password_digest"
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
