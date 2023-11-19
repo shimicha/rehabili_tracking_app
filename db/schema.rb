@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_11_083915) do
+ActiveRecord::Schema.define(version: 2023_11_19_120630) do
+
+  create_table "exercise_plans", force: :cascade do |t|
+    t.string "image"
+    t.text "movie_url"
+    t.string "training_menu"
+    t.text "description"
+    t.integer "therapist_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["therapist_user_id"], name: "index_exercise_plans_on_therapist_user_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.integer "training_menu_id"
@@ -36,23 +47,11 @@ ActiveRecord::Schema.define(version: 2023_11_11_083915) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "therapist_users", force: :cascade do |t|
-    t.string "name"
-    t.string "email", null: false
-    t.string "password_digest"
-    t.string "salt"
+  create_table "relationships", force: :cascade do |t|
+    t.integer "patient_id"
+    t.integer "therapist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_therapist_users_on_email", unique: true
-  end
-
-  create_table "training_menus", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_training_menus_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
