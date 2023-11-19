@@ -8,12 +8,12 @@
 
       <%= form_with url: admin_login_path, local: true do |f| %>
 
-        <%= f.label :name %>
+        <%= f.label :email %>
         <div class="input-group mb-3">
-          <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+          <%= f.text_field :email, class: 'form-control', placeholder: 'Email' %>
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-user"></span>
+              <span class="fas fa-envelope"></span>
             </div>
           </div>
         </div>
@@ -21,16 +21,6 @@
         <%= f.label :password %>
         <div class="input-group mb-3">
           <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-
-        <%= f.label :password_confirmation, 'Password Confirmation' %>
-        <div class="input-group mb-3">
-          <%= f.password_field :password_confirmation, class: 'form-control', placeholder: 'Password Confirmation' %>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

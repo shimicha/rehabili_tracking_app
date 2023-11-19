@@ -1,8 +1,9 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_one :profile, dependent: :destroy
-  has_many :training_menus
-  has_many :posts
+
+  has_many :therapists, through: :relationships, source: :therapist
+  has_many :patients, through: :reverse_of_relationships, source: :patient
 
   enum role: { general: 0, admin: 1 }
 
@@ -13,4 +14,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, presence: true
   validates :name, presence: true, length: { maximum: 255 }
+
+  def assigned_therapist?(therapist)
+    therapists.include?(therapist)
+  end
 end
