@@ -5,8 +5,8 @@ class CreateExercisePlans < ActiveRecord::Migration[5.2]
       t.text :movie_url
       t.string :training_menu
       t.text :description
-      t.references :therapist_user, foreign_key: true
-
+      t.text :image_description
+      t.references :relationship, foreign_key: true
 
       t.timestamps
     end

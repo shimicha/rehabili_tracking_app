@@ -1,9 +1,33 @@
 <div class="container">
-        <h1>Welcome to the Link Page</h1>
-        <ul>
-            <li><%= link_to 'プロフィール', new_profile_path %></li>
-            <li><%= link_to 'プラン確認', '#' %></li>
-            <li><%= link_to '進捗確認ダッシューボード', '#' %></li>
-            <li><%= link_to 'パスワード変更', new_password_reset_path %></li>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body text-center">
+          <h1 class="card-title">Link Page</h1>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <i class="fas fa-user"></i>
+            <%= link_to 'プロフィール', profiles_path, class: 'btn btn-link btn-block' %>
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-user-plus"></i>
+            <%= link_to 'プロフィール新規作成', new_profile_path, class: 'btn btn-link btn-block' %>
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-tasks"></i>
+            <%= link_to 'プラン確認', '#', class: 'btn btn-link btn-block' %>
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-chart-line"></i>
+            <%= link_to '進捗確認ダッシューボード', '#', class: 'btn btn-link btn-block' %>
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-key"></i>
+            <%= link_to 'パスワード変更', new_password_reset_path, class: 'btn btn-link btn-block' %>
+          </li>
         </ul>
+      </div>
     </div>
+  </div>
+</div>

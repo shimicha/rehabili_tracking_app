@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <h1 class="text-center">実施訓練メニュー編集</h1>
+  <%= form_for [:admin, @exercise_plan], html: { class: 'needs-validation', novalidate: true } do |f| %>
+    <div class="form-group">
+      <%= f.label :training_menu, class: 'font-weight-bold' %>
+      <%= f.text_field :training_menu, class: 'form-control', required: true %>
+      <div class="invalid-feedback">
+        トレーニングメニューを入力してください。
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description, class: 'font-weight-bold' %>
+      <%= f.text_area :description, class: 'form-control', required: true %>
+      <div class="invalid-feedback">
+        詳細を入力してください。
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :image, class: 'font-weight-bold' %>
+      <%= f.file_field :image, onchange: 'previewImage()', class: 'form-control', accept: 'image/*' %>
+      <%= f.hidden_field :image_cache %>
+      <div class="invalid-feedback">
+        画像ファイルを選択してください。
+      </div>
+      <div class='mt-3 mb-3 text-center'>
+        <%= image_tag @exercise_plan.image.url, id: 'preview', size: '150x150', class: 'rounded-circle' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :image_description, class: 'font-weight-bold' %>
+      <%= f.text_field :image_description, class: 'form-control', required: true %>
+      <div class="invalid-feedback">
+        画像の説明を入力してください。
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :movie_url, class: 'font-weight-bold' %>
+      <%= f.text_field :movie_url, class: 'form-control', required: true %>
+      <div class="invalid-feedback">
+        動画のURLを入力してください。
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "更新する", class: "btn btn-primary btn-block" %>
+    </div>
+  <% end %>
+</div>

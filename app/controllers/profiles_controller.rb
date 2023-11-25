@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :update]
 
 def new
-    @profile = Profile.new
+  @profile = Profile.new
 end
 
 def index
@@ -10,7 +10,7 @@ def index
 end
 
 def edit
-    @profile = current_user.profile
+  @profile = current_user.profile
 end
 
 def create
