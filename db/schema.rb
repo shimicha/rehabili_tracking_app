@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(version: 2023_11_19_120630) do
     t.text "movie_url"
     t.string "training_menu"
     t.text "description"
-    t.integer "therapist_user_id"
+    t.text "image_description"
+    t.integer "relationship_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["therapist_user_id"], name: "index_exercise_plans_on_therapist_user_id"
+    t.index ["relationship_id"], name: "index_exercise_plans_on_relationship_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -52,6 +53,8 @@ ActiveRecord::Schema.define(version: 2023_11_19_120630) do
     t.integer "therapist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["patient_id"], name: "index_relationships_on_patient_id"
+    t.index ["therapist_id"], name: "index_relationships_on_therapist_id"
   end
 
   create_table "users", force: :cascade do |t|
