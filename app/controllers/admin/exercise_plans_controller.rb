@@ -38,6 +38,6 @@ class Admin::ExercisePlansController < Admin::BaseController
   private
 
   def exercise_plan_params
-    params.require(:exercise_plan).permit(:training_menu, :description, :image, :image_description, :movie_url, :image_cache)
+    params.require(:exercise_plan).permit(:training_menu, :description, :images_description, :movie_url, :images_cache, { images: [] })
   end
 end

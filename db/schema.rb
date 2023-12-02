@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2023_11_19_120630) do
 
   create_table "exercise_plans", force: :cascade do |t|
-    t.string "image"
+    t.json "images"
     t.text "movie_url"
     t.string "training_menu"
     t.text "description"
-    t.text "image_description"
+    t.text "images_description"
     t.integer "relationship_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
