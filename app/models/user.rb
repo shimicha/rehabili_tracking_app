@@ -1,11 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_one :profile, dependent: :destroy
-
-  has_many :patient, class_name: "Relationship", foreign_key: "patient_id", dependent: :destroy
-  has_many :therapist, class_name: "Relationship", foreign_key: "therapist_id", dependent: :destroy
-  has_many :patients, through: :therapist, source: :patient
-  has_many :therapists, through: :patient, source: :therapist
+  has_many :exercise_plans, dependent: :destroy
 
   enum role: { general: 0, admin: 1 }
 
@@ -17,15 +13,4 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :name, presence: true, length: { maximum: 255 }
 
-  def handle(user_id)
-    therapist.create(patient_id: user_id)
-  end
-
-  def unhandle(user_id)
-    therapist.find_by(patient_id: user_id).destroy
-  end
-
-  def handling?(user)
-    therapists.include?(user)
-  end
 end

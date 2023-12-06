@@ -6,37 +6,41 @@
           <h1 class="card-title text-center mb-0">プロフィール</h1>
         </div>
         <div class="card-body">
-          <%= link_to '編集', edit_profile_path(@profile), class: 'btn btn-success float-right' %>
-          <div class="profile-details">
-            <div class="form-group">
-              <strong>年齢:</strong>
-              <%= @profile.age %>
+          <% if @profile.present? %>
+            <%= link_to '編集', edit_profile_path(@profile), class: 'btn btn-success float-right' %>
+            <div class="profile-details">
+              <div class="form-group">
+                <strong>年齢:</strong>
+                <%= @profile.age %>
+              </div>
+              <div class="form-group">
+                <strong>性別:</strong>
+                <%= @profile.gender %>
+              </div>
+              <div class="form-group">
+                <strong>現在の病歴:</strong>
+                <%= @profile.history_of_present_illness %>
+              </div>
+              <div class="form-group">
+                <strong>禁忌事項:</strong>
+                <%= @profile.contraindications %>
+              </div>
+              <div class="form-group">
+                <strong>医療歴:</strong>
+                <%= @profile.medical_history %>
+              </div>
+              <div class="form-group">
+                <strong>手術歴:</strong>
+                <%= @profile.surgery_history %>
+              </div>
+              <div class="form-group text-center">
+                <strong>アイコン:</strong><br>
+                <%= image_tag @profile.icon.url, id: 'preview', size: '200x200', class: 'rounded-circle' %>
+              </div>
             </div>
-            <div class="form-group">
-              <strong>性別:</strong>
-              <%= @profile.gender %>
-            </div>
-            <div class="form-group">
-              <strong>現在の病歴:</strong>
-              <%= @profile.history_of_present_illness %>
-            </div>
-            <div class="form-group">
-              <strong>禁忌事項:</strong>
-              <%= @profile.contraindications %>
-            </div>
-            <div class="form-group">
-              <strong>医療歴:</strong>
-              <%= @profile.medical_history %>
-            </div>
-            <div class="form-group">
-              <strong>手術歴:</strong>
-              <%= @profile.surgery_history %>
-            </div>
-            <div class="form-group text-center">
-              <strong>アイコン:</strong><br>
-              <%= image_tag @profile.icon.url, id: 'preview', size: '200x200', class: 'rounded-circle' %>
-            </div>
-          </div>
+          <% else %>
+            <p>プロフィールが存在しません。</p>
+          <% end %>
         </div>
       </div>
     </div>

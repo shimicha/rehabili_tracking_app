@@ -1,0 +1,36 @@
+<table class="table table-hover">
+  <thead>
+    <tr class="table-primary">
+      <th>ID</th>
+      <th>名前</th>
+      <th>作成日</th>
+      <th>操作</th>
+      <th>オプション</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= l(user.created_at, format: :long) %></td>
+        <td>
+          <%= link_to "#", class: 'btn btn-info' do %>
+            <i class="fas fa-comment"></i> 月別コメント
+          <% end %>
+          <%= link_to profiles_path, class: 'btn btn-warning' do %>
+            <i class="fas fa-user"></i> プロフィール
+          <% end %>
+          <%= link_to admin_exercise_plans_path(user_id: user.id), class: 'btn btn-success' do %>
+            <i class="fas fa-running"></i> エクササイズプラン
+          <% end %>
+        </td>
+        <td>
+          <%= link_to admin_users_path, method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' do %>
+            <i class="fas fa-trash-alt"></i> <%= t('defaults.delete') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
