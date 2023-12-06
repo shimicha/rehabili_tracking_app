@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_19_120630) do
+ActiveRecord::Schema.define(version: 2023_11_11_020100) do
 
   create_table "exercise_plans", force: :cascade do |t|
     t.json "images"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2023_11_19_120630) do
     t.string "training_menu"
     t.text "description"
     t.text "images_description"
-    t.integer "relationship_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["relationship_id"], name: "index_exercise_plans_on_relationship_id"
+    t.index ["user_id"], name: "index_exercise_plans_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -46,15 +46,6 @@ ActiveRecord::Schema.define(version: 2023_11_19_120630) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "patient_id"
-    t.integer "therapist_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_relationships_on_patient_id"
-    t.index ["therapist_id"], name: "index_relationships_on_therapist_id"
   end
 
   create_table "users", force: :cascade do |t|

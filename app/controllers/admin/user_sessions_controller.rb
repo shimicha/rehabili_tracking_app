@@ -9,7 +9,7 @@ class Admin::UserSessionsController < Admin::BaseController
     @user = login(params[:email], params[:password])
     
     if @user
-      redirect_back_or_to new_admin_exercise_plan_path, success: 'ログインしました'
+      redirect_back_or_to admin_users_path, success: 'ログインしました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
       render :new

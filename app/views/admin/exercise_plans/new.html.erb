@@ -6,7 +6,10 @@
           <h1 class="card-title text-center mb-0">実施訓練メニューの新規作成</h1>
         </div>
         <div class="card-body">
-          <%= form_with model: [:admin, @exercise_plan], local: true, html: { novalidate: true } do |f| %>
+        <%= form_with model: [:admin, @exercise_plan], url: admin_exercise_plans_path(user_id: @user_id), local: true do |f| %>
+
+          <%= f.hidden_field :user_id, value: @user_id %>
+          
             <div class="form-group">
               <%= f.label :training_menu, class: 'font-weight-bold' %>
               <%= f.text_field :training_menu, class: 'form-control', required: true %>

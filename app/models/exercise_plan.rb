@@ -1,5 +1,6 @@
 class ExercisePlan < ApplicationRecord
     mount_uploaders :images, ImageUploader
+    belongs_to :user
 
     validates :training_menu, presence: true
     validates :description, presence: true
