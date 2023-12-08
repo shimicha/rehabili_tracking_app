@@ -34,8 +34,9 @@ class Admin::ExercisePlansController < Admin::BaseController
 
   def destroy
     @exercise_plan = ExercisePlan.find(params[:id])
+    user_id = @exercise_plan.user_id
     @exercise_plan.destroy
-    redirect_to admin_exercise_plans_path, notice: '実施訓練メニューを削除しました。'
+    redirect_to admin_exercise_plans_path(user_id: user_id), notice: '実施訓練メニューを削除しました。'
   end
 
   private
