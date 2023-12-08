@@ -28,7 +28,8 @@ Rails.application.routes.draw do
     post 'login', to: 'user_sessions#create'
     delete 'logout', to: 'user_sessions#destroy'
     resources :exercise_plans, only: %i[index new create edit destroy update]
-    resources :users, only: %i[index destroy]
+    resources :users, only: %i[index destroy edit update]
+    resources :profiles, only: %i[index update edit new create]
   end
 end
 
