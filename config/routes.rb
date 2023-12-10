@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  get 'dashboards', to: 'dashboards#index'
+  resources :dashboards, only: %i[index]
+  resources :exercise_progresses, only: %i[index new]
 
   namespace :admin do
     get 'login', to: 'user_sessions#new'

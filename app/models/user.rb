@@ -2,6 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   has_one :profile, dependent: :destroy
   has_many :exercise_plans, dependent: :destroy
+  has_many :exercise_progresses
 
   enum role: { general: 0, admin: 1 }
 
