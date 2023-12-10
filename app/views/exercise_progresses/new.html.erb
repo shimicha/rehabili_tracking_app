@@ -1,0 +1,22 @@
+<%= form_with(model: @exercise_progresse, local: true, html: { class: 'exercise-form' }) do |f| %>
+  <div class="form-group">
+    <%= f.label :date, class: 'form-label' %>
+    <%= f.date_select :date, class: 'form-control' %>
+  </div>
+
+  <% @exercise_plans.each_with_index do |exercise_plan, index| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Training Menu: <%= exercise_plan.training_menu %></h5>
+        <div class="form-group">
+          <%= label_tag "exercise_progresse[exercise_plans_attributes][#{index}][progresse_keep]", "Progresse Keep" %>
+          <%= text_area_tag "exercise_progresse[exercise_plans_attributes][#{index}][progresse_keep]", @exercise_progresse.progresse_keep, class: 'form-control', rows: 5 %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group submit-button">
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
+<% end %>

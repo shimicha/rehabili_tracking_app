@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_11_020100) do
+ActiveRecord::Schema.define(version: 2023_12_10_020758) do
 
   create_table "exercise_plans", force: :cascade do |t|
     t.json "images"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2023_11_11_020100) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_exercise_plans_on_user_id"
+  end
+
+  create_table "exercise_progresses", force: :cascade do |t|
+    t.date "date"
+    t.datetime "today_at"
+    t.text "progresse_keep"
+    t.text "exercise_post"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_exercise_progresses_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
