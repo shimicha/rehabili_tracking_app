@@ -19,12 +19,8 @@
           <% end %>
         </td>
         <td>
-          <% if @last_updates[current_month] %>
-            <%= link_to progress_month_path(year: current_month.year, month: current_month.month), class: "btn btn-primary btn-sm" do %>
-              <i class="fas fa-info-circle"></i> 詳細
-            <% end %>
-          <% else %>
-            <!-- データがない場合の処理 -->
+          <%= link_to exercise_progresses_path(year: current_month.year, month: current_month.month), class: "btn btn-primary btn-sm" do %>
+            <i class="fas fa-info-circle"></i> 詳細
           <% end %>
         </td>
       </tr>
