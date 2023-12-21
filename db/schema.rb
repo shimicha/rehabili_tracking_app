@@ -35,15 +35,6 @@ ActiveRecord::Schema.define(version: 2023_12_10_020758) do
     t.index ["user_id"], name: "index_exercise_progresses_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.integer "training_menu_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["training_menu_id"], name: "index_posts_on_training_menu_id"
-    t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
