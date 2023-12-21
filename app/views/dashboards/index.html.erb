@@ -7,24 +7,14 @@
     </tr>
   </thead>
   <tbody>
-    <% current_month = Date.new(Date.today.year, 1, 1) %> <!-- 一月からスタート -->
-    <% 12.times do %>
+    <% @monthly_data.each do |data| %>
       <tr>
-        <td><%= current_month.strftime('%B') %></td>
+        <td><%= data[:month] %></td>
+        <td><%= data[:last_update] %></td>
         <td>
-          <% if @last_updates[current_month] %>
-            <%= @last_updates[current_month].strftime('%Y-%m-%d %H:%M:%S') %>
-          <% else %>
-            データがありません
-          <% end %>
-        </td>
-        <td>
-          <%= link_to exercise_progresses_path(year: current_month.year, month: current_month.month), class: "btn btn-primary btn-sm" do %>
-            <i class="fas fa-info-circle"></i> 詳細
-          <% end %>
+          <%= link_to '詳細', exercise_progresses_path, class: 'btn btn-primary btn-sm' %>
         </td>
       </tr>
-      <% current_month = current_month.next_month %> <!-- 次の月に移動 -->
     <% end %>
   </tbody>
 </table>

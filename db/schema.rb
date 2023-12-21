@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 2023_12_10_020758) do
     t.date "date"
     t.datetime "today_at"
     t.text "progresse_keep"
-    t.text "exercise_post"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
