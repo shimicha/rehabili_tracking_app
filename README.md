@@ -47,7 +47,7 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
  プロフィール情報の設定（年齢、性別、医療歴など）
    - Profile機能(CRUDで実装)
  セラピストの管理者機能
-   - admin機能
+   - admin機能(CURDで実装)
 
 ⚪️個別のエクササイズプラン
  理学療法士が患者ごとのプランを作成・編集
@@ -88,7 +88,8 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
  患者のアカウント作成・ログイン機能
    →　sorceryの認証ライブラリを使用してユーザー管理を実装する。
  セラピストの管理者機能
-   →  RailsAdminライブラリを使用し、管理者画面を持たせて特定のユーザーに管理者の権限を付与する。
+   →  CURDで実装。管理者画面を持たせて特定のユーザーに管理者の権限を付与する。
+
 
 ⚪️進捗トラッキング機能
  患者が毎日のエクササイズやストレッチの完了を記録
