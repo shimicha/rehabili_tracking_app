@@ -4,7 +4,6 @@ class CreateExerciseProgresses < ActiveRecord::Migration[5.2]
       t.date :date
       t.datetime :today_at
       t.text :progresse_keep
-      t.text :exercise_post
       t.references :user, foreign_key: true
       t.timestamps
 

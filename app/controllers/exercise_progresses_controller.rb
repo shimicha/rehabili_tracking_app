@@ -11,10 +11,9 @@ end
 
 def create
     @exercise_progresse = ExerciseProgresse.new(exercise_progresse_params)
-    byebug
-  
+    @exercise_progresse.user_id = current_user.id
     if @exercise_progresse.save
-      redirect_to @exercise_progresse, notice: 'Exercise Progresse was successfully created.'
+      redirect_to exercise_progresses_path, notice: 'Exercise Progresse was successfully created.'
     else
       render :new
     end
@@ -23,7 +22,7 @@ def create
   private
   
   def exercise_progresse_params
-    params.require(:exercise_progresse).permit(:date, tag: [], exercise_plans_data: [:progresse_keep])
+    params.require(:exercise_progresse).permit(:date, :today_at, :progresse_keep, :user_id)
   end
 
 end
