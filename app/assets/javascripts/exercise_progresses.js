@@ -33,7 +33,11 @@ $(document).on('turbolinks:load', function () {
             eventColor: '#87cefa',
             // イベントの文字色を変える
             eventTextColor: '#000000',
+            
+            displayEventTime: false,
+            
             eventRender: function(event, element) {
+                
                 element.css("font-size", "0.8em");
                 element.css("padding", "5px");
             }
