@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :posts
 
   resources :dashboards, only: %i[index]
-  resources :exercise_progresses, only: %i[index new create]
+  resources :exercise_progresses, only: %i[index new create show]
 
   namespace :admin do
     get 'login', to: 'user_sessions#new'

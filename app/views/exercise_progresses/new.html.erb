@@ -5,13 +5,13 @@
     <%= f.date_select :date, class: 'form-control' %>
   </div>
 
-  <% @exercise_plans.each_with_index do |exercise_plan, index| %>
+  <% @exercise_plans.each do |exercise_plan| %>
     <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title">Training Menu: <%= exercise_plan.training_menu %></h5>
         <div class="form-group">
-        <%= label_tag "exercise_plans_data[#{index}][progresse_keep]", "Progresse Keep" %>
-        <%= text_area_tag "exercise_plans_data[#{index}][progresse_keep]", nil, class: 'form-control', rows: 5 %>
+        <%= f.label :progresse_keep, class: 'form-label'%>
+        <%= f.text_area :progresse_keep, class: 'form-control', rows: 5 %>
         </div>
       </div>
     </div>
