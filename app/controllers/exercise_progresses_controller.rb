@@ -9,6 +9,11 @@ def new
     @exercise_progresse.date = Date.today
 end
 
+def show
+  @exercise_progresse = ExerciseProgresse.find(params[:id])
+  @exercise_plans = ExercisePlan.all
+end
+
 def create
     @exercise_progresse = ExerciseProgresse.new(exercise_progresse_params)
     @exercise_progresse.user_id = current_user.id

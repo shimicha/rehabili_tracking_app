@@ -1,0 +1,17 @@
+<h1>Exercise Progresse Details</h1>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Date:</strong> <%= @exercise_progresse.date %></h5>
+  </div>
+</div>
+
+<h2>Exercise Plans</h2>
+<% @exercise_plans.each do |exercise_plan| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">Training Menu: <%= exercise_plan.training_menu %></h5>
+      <p><strong>Progresse Keep:</strong> <%= @exercise_progresse.progresse_keep %></p>
+    </div>
+  </div>
+<% end %>
