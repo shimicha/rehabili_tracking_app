@@ -12,7 +12,7 @@
         <td><%= data[:month] %></td>
         <td><%= data[:last_update] %></td>
         <td>
-          <%= link_to '詳細', exercise_progresses_path, class: 'btn btn-primary btn-sm' %>
+          <%= link_to '詳細', exercise_progresses_path(month: data[:month]), class: 'btn btn-primary btn-sm' %>
         </td>
       </tr>
     <% end %>
