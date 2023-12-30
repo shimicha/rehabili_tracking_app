@@ -10,7 +10,11 @@
     <% @monthly_data.each do |data| %>
       <tr>
         <td><%= data[:month] %></td>
-        <td><%= data[:last_update] %></td>
+        <% if data[:latest_progress] %>
+          <td><%= data[:latest_progress].updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <% else %>
+          <td>No progress records found.</td>
+        <% end %>
         <td>
           <%= link_to '詳細', exercise_progresses_path(month: data[:month]), class: 'btn btn-primary btn-sm' %>
         </td>
