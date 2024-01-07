@@ -10,13 +10,13 @@
     <% @monthly_data.each do |data| %>
       <tr>
         <td><%= data[:month] %></td>
-        <% if data[:latest_progress] %>
-          <td><%= data[:latest_progress].updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <% if data[:latest_progress_date] %>
+        <td><%= data[:latest_progress_date].strftime("%Y-%m-%d") %></td>
         <% else %>
           <td>No progress records found.</td>
         <% end %>
         <td>
-          <%= link_to '詳細', exercise_progresses_path(month: data[:month]), class: 'btn btn-primary btn-sm' %>
+         <%= link_to '詳細', exercise_progresses_path(month: data[:month], user_id: current_user.id), class: 'btn btn-primary btn-sm' %>
         </td>
       </tr>
     <% end %>
