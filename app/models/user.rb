@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :exercise_plans, dependent: :destroy
   has_many :exercise_progresses
+  has_many :exercise_progress_comments
+  has_many :dashboards
 
   enum role: { general: 0, admin: 1 }
 
