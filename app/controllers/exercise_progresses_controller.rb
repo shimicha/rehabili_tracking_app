@@ -1,23 +1,23 @@
 class ExerciseProgressesController < ApplicationController
 def index
-    @exercise_progresses = ExerciseProgresse.all
+  @exercise_progresses = ExerciseProgress.where(user_id: current_user.id)
 end
 
 def new
     @exercise_plans = ExercisePlan.all
-    @exercise_progresse = ExerciseProgresse.new
-    @exercise_progresse.date = Date.today
+    @exercise_progresses = ExerciseProgress.new
+    @exercise_progresses.date = Date.today
 end
 
 def show
-  @exercise_progresse = ExerciseProgresse.find(params[:id])
+  @exercise_progresses = ExerciseProgress.find(params[:id])
   @exercise_plans = ExercisePlan.all
 end
 
 def create
-    @exercise_progresse = ExerciseProgresse.new(exercise_progresse_params)
-    @exercise_progresse.user_id = current_user.id
-    if @exercise_progresse.save
+    @exercise_progresses = ExerciseProgress.new(exercise_progress_params)
+    @exercise_progresses.user_id = current_user.id
+    if @exercise_progresses.save
       redirect_to exercise_progresses_path, notice: 'Exercise Progresse was successfully created.'
     else
       render :new
@@ -26,8 +26,8 @@ def create
   
   private
   
-  def exercise_progresse_params
-    params.require(:exercise_progresse).permit(:date, :today_at, :progresse_keep, :user_id)
+  def exercise_progress_params
+    params.require(:exercise_progress).permit(:date, :today_at, :progresse_keep, :user_id)
   end
 
 end

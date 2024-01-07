@@ -20,7 +20,7 @@
           </li>
           <li class="list-group-item">
             <i class="fas fa-chart-line"></i>
-            <%= link_to '進捗確認ダッシューボード', dashboards_path, class: 'btn btn-link btn-block' %>
+            <%= link_to '進捗確認ダッシューボード', dashboards_path(user_id: current_user.id), class: 'btn btn-link btn-block' %>
           </li>
           <li class="list-group-item">
             <i class="fas fa-key"></i>

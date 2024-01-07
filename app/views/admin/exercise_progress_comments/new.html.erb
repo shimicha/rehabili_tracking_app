@@ -1,0 +1,39 @@
+<h1>New Exercise Progress Comment</h1>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <% if @exercise_progresses.present? %>
+      <h5 class="card-title"><strong>Date:</strong> <%= @exercise_progresses.last.date %></h5>
+    <% else %>
+      <p>No progress available</p>
+    <% end %>
+  </div>
+</div>
+
+<h2>Exercise Plans</h2>
+<% if @exercise_progresses.present? %>
+  <% latest_progress = @exercise_progresses.last %>
+  <% @exercise_plans.each do |exercise_plan| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Training Menu: <%= exercise_plan.training_menu %></h5>
+        <% if latest_progress.progresse_keep.present? %>
+          <p><strong>Progresse Keep:</strong> <%= latest_progress.progresse_keep %></p>
+        <% else %>
+          <p>No progress keep for this date</p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>No exercise plans available</p>
+<% end %>
+
+<h2>Add Comment</h2>
+<%= form_with(model: @exercise_progress_comment, local: true, html: { class: 'exercise-form' }) do |f| %>
+  <div class="form-group">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, rows: 3, class: 'form-control' %>
+  </div>
+  <%= f.submit 'Submit Comment', class: 'btn btn-primary' %>
+<% end %>

@@ -15,7 +15,7 @@
         <td><%= user.name %></td>
         <td><%= l(user.created_at, format: :long) %></td>
         <td>
-          <%= link_to "#", class: 'btn btn-info' do %>
+          <%= link_to new_admin_exercise_progress_comment_path(user_id: user.id), class: 'btn btn-info' do %>
             <i class="fas fa-comment"></i> 投稿フィードバック
           <% end %>
           <%= link_to admin_profiles_path(user_id: user.id), class: 'btn btn-warning' do %>

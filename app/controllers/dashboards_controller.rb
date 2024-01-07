@@ -1,13 +1,14 @@
 class DashboardsController < ApplicationController
-    def index
-      @monthly_data = (1..12).map do |month|
-        last_day_of_month = Date.new(Date.today.year, month, -1)
-        latest_progress = ExerciseProgresse.where('date <= ?', last_day_of_month)
-                                          .order(updated_at: :desc).first
-        {
-          month: Date::MONTHNAMES[month],
-          latest_progress: latest_progress
-        }
-      end
+  def index
+    @monthly_data = (1..12).map do |month|
+      latest_progress = ExerciseProgress.where(user_id: current_user.id)
+                                        .select { |ep| ep.date.month == month }
+                                        .max_by(&:date)
+
+      {
+        month: Date::MONTHNAMES[month],
+        latest_progress_date: latest_progress ? latest_progress.date : nil
+      }
     end
+  end
 end
