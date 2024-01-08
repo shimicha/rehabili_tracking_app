@@ -15,3 +15,12 @@
     </div>
   </div>
 <% end %>
+
+<h2>Comments</h2>
+<% @exercise_progress_comments.each do |comment| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <p><strong>Comment:</strong> <%= comment.comment %></p>
+    </div>
+  </div>
+<% end %>

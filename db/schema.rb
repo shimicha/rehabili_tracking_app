@@ -31,12 +31,14 @@ ActiveRecord::Schema.define(version: 2024_01_07_160712) do
     t.index ["user_id"], name: "index_exercise_plans_on_user_id"
   end
 
-  create_table "exercise_progress_Comments", force: :cascade do |t|
+  create_table "exercise_progress_comments", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
+    t.integer "exercise_progress_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_exercise_progress_Comments_on_user_id"
+    t.index ["exercise_progress_id"], name: "index_exercise_progress_comments_on_exercise_progress_id"
+    t.index ["user_id"], name: "index_exercise_progress_comments_on_user_id"
   end
 
   create_table "exercise_progresses", force: :cascade do |t|
