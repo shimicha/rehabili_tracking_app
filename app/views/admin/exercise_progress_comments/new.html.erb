@@ -34,6 +34,10 @@
  
   <%= f.hidden_field :user_id, value: @user_id %>
 
+  <% if @exercise_progresses.present? %>
+    <%= f.hidden_field :exercise_progress_id, value: @exercise_progresses.last.id %>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :comment %>
     <%= f.text_area :comment, rows: 3, class: 'form-control' %>
