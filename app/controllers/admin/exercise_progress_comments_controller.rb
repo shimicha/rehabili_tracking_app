@@ -26,6 +26,6 @@ class Admin::ExerciseProgressCommentsController < Admin::BaseController
     end
 
     def comment_params
-        params.require(:exercise_progress_comment).permit(:comment, :user_id)
+        params.require(:exercise_progress_comment).permit(:comment, :user_id, :exercise_progress_id)
     end
 end
