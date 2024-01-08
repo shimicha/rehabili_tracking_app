@@ -1,23 +1,26 @@
-<%= form_with(model: @exercise_progresses, local: true, html: { class: 'exercise-form' }) do |f| %>
-  
-  <div class="form-group">
-    <%= f.label :date, class: 'form-label' %>
-    <%= f.date_select :date, class: 'form-control' %>
-  </div>
+<% if @exercise_plans.any? %>
+  <%= form_with(model: @exercise_progresses, local: true, html: { class: 'exercise-form' }) do |f| %>
+    <div class="form-group">
+      <%= f.label :date, class: 'form-label' %>
+      <%= f.date_select :date, class: 'form-control' %>
+    </div>
 
-  <% @exercise_plans.each do |exercise_plan| %>
-    <div class="card mb-3">
-      <div class="card-body">
-        <h5 class="card-title">Training Menu: <%= exercise_plan.training_menu %></h5>
-        <div class="form-group">
-        <%= f.label :progresse_keep, class: 'form-label'%>
-        <%= f.text_area :progresse_keep, class: 'form-control', rows: 5 %>
+    <% @exercise_plans.each do |exercise_plan| %>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Training Menu: <%= exercise_plan.training_menu %></h5>
+          <div class="form-group">
+            <%= f.label :progresse_keep, class: 'form-label' %>
+            <%= f.text_area :progresse_keep, class: 'form-control', rows: 5 %>
+          </div>
         </div>
       </div>
+    <% end %>
+
+    <div class="form-group submit-button">
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
     </div>
   <% end %>
-
-  <div class="form-group submit-button">
-    <%= f.submit 'Submit', class: 'btn btn-primary' %>
-  </div>
+<% else %>
+<p>Currently, there are no exercise plans available. Please wait for a plan to be added to start recording your progress.</p>
 <% end %>

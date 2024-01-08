@@ -4,14 +4,14 @@ def index
 end
 
 def new
-    @exercise_plans = ExercisePlan.all
+    @exercise_plans = ExercisePlan.where(user_id: current_user.id)
     @exercise_progresses = ExerciseProgress.new
     @exercise_progresses.date = Date.today
 end
 
 def show
   @exercise_progresses = ExerciseProgress.find(params[:id])
-  @exercise_plans = ExercisePlan.all
+  @exercise_plans = ExercisePlan.where(user_id: current_user.id)
 end
 
 def create

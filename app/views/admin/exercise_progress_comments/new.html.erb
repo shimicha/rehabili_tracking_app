@@ -30,7 +30,10 @@
 <% end %>
 
 <h2>Add Comment</h2>
-<%= form_with(model: @exercise_progress_comment, local: true, html: { class: 'exercise-form' }) do |f| %>
+<%= form_with model: [:admin, @exercise_progress_comments], url: admin_exercise_progress_comments_path(user_id: @user_id), local: true do |f| %>
+ 
+  <%= f.hidden_field :user_id, value: @user_id %>
+
   <div class="form-group">
     <%= f.label :comment %>
     <%= f.text_area :comment, rows: 3, class: 'form-control' %>
