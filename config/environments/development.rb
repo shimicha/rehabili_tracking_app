@@ -60,4 +60,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.delivery_method = :letter_opener_web
   config.action_mailer.default_url_options = Settings.default_url_options.to_h
+
+  
 end
