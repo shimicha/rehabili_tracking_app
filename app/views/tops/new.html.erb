@@ -4,6 +4,24 @@
       <div class="card">
         <div class="card-body text-center">
           <h1 class="card-title">Link Page</h1>
+
+          <!-- 一意の識別子を表示 -->
+          <% if current_user.identifier.present? %>
+            <p class="card-text">
+              あなたの識別子: <strong><%= current_user.identifier %></strong>
+            </p>
+          <% else %>
+            <p class="card-text text-danger">識別子が設定されていません。</p>
+          <% end %>
+
+          <!-- LINEアカウントへのリンクを追加 -->
+          <div class="mt-3">
+          <p>通知が届くように以下のリンクから<br>公式LINEアカウントを友達追加して下さい</p>
+
+          <div class="line-it-button" data-lang="ja" data-type="share-b" data-ver="3" data-url="https://lin.ee/fKbU5kQ" data-color="default" data-size="large" data-count="false" style="display: none;"></div>
+            <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
+
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">

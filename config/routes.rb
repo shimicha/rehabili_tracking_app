@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   resources :dashboards, only: %i[index]
   resources :exercise_progresses, only: %i[index new create show]
 
+  post '/line_bot/callback', to: 'line_bot#callback'
+
   namespace :admin do
     get 'login', to: 'user_sessions#new'
     post 'login', to: 'user_sessions#create'

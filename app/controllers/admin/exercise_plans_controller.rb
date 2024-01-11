@@ -8,8 +8,8 @@ class Admin::ExercisePlansController < Admin::BaseController
   def create
     @exercise_plan = ExercisePlan.new(exercise_plan_params)
     if @exercise_plan.save
-      user_id = @exercise_plan.user_id 
-      redirect_to admin_exercise_plans_path(user_id: user_id)
+      send_notification(@exercise_plan.user_id, 'エクササイズプランが作成されました。')
+      redirect_to admin_exercise_plans_path(user_id: @exercise_plan.user_id)
     else
       render :new
     end
@@ -26,7 +26,8 @@ class Admin::ExercisePlansController < Admin::BaseController
   def update
     @exercise_plan = ExercisePlan.find(params[:id])
     if @exercise_plan.update(exercise_plan_params)
-      redirect_to admin_exercise_plans_path(user_id: @exercise_plan.user_id), notice: '実施訓練メニューを更新しました。'
+      send_notification(@exercise_plan.user_id, 'エクササイズプランが更新されました。')
+      redirect_to admin_exercise_plans_path(user_id: @exercise_plan.user_id)
     else
       render :edit
     end
@@ -47,5 +48,24 @@ class Admin::ExercisePlansController < Admin::BaseController
 
   def exercise_plan_params
     params.require(:exercise_plan).permit(:user_id, :training_menu, :description, :images_description, :movie_url, :images_cache, { images: [] })
+  end
+
+  def send_notification(user_id, message_text)
+    user = User.find(user_id)
+    return unless user.line_id
+
+    message = {
+      type: 'text',
+      text: message_text
+    }
+
+    client.push_message(user.line_id, message)
+  end
+  
+  def client
+    @client ||= Line::Bot::Client.new { |config|
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+    }
   end
 end
