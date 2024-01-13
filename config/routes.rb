@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :exercise_plans, only: %i[index new create edit destroy update]
     resources :users, only: %i[index destroy edit update]
     resources :profiles, only: %i[index update edit new create]
-    resources :exercise_progress_comments, only: %i[new create]
+    resources :exercise_progress_comments, only: %i[new create index]
   end
 end
 
