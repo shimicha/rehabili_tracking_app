@@ -16,9 +16,10 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
-//= require exercise_progresses
 //= require activestorage
 //= require turbolinks
+//= require exercise_progresses
 //= require_tree .
+
 
 

@@ -1,4 +1,4 @@
-<% if @exercise_plans.any? %>
+<% if @exercise_plans&.any? %>
   <%= form_with(model: @exercise_progresses, local: true, html: { class: 'exercise-form' }) do |f| %>
     <div class="form-group">
       <%= f.label :date, class: 'form-label' %>

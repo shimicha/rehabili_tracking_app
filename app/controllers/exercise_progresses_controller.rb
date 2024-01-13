@@ -12,7 +12,7 @@ end
 def show
   @exercise_progresses = ExerciseProgress.find(params[:id])
   @exercise_plans = ExercisePlan.where(user_id: current_user.id)
-  @exercise_progress_comments = @exercise_progresses.exercise_progress_comments.where(user_id: current_user.id)
+  @exercise_progress_comments = @exercise_progresses.exercise_progress_comments
 end
 
 def create
