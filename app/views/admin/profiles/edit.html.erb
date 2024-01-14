@@ -1,43 +1,43 @@
 <div class="container pt-3">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-      <h1 class="float-left mb-5">title</h1>
+      <h1 class="float-left mb-5">ユーザープロフィール編集ページ</h1>
       <%= form_with model: [:admin, @profile], local: true do |f| %>
 
         <table class="table">
           <tr>
-            <th scope="row">gender</th>
+            <th scope="row">性別:</th>
             <td>
-              <%= f.label :man %>
+              <%= f.label :man ,'男性' %>
               <%= f.radio_button :gender, :man %>
-              <%= f.label :woman %>
+              <%= f.label :woman ,'女性' %>
               <%= f.radio_button :gender, :woman %>
             </td>
           </tr>
           <tr>
-            <th scope="row">age</th>
+            <th scope="row">年齢:</th>
             <td><%= f.text_field :age %></td>
           </tr>
           <tr>
-            <th scope="row">history_of_present_illness</th>
+            <th scope="row">現在の病歴:</th>
             <td><%= f.text_field :history_of_present_illness %></td>
           </tr>
           <tr>
-            <th scope="row">contraindications</th>
+            <th scope="row">お身体に関する禁忌事項:</th>
             <td><%= f.text_field :contraindications %></td>
           </tr>
           <tr>
-            <th scope="row">medical_history</th>
+            <th scope="row">今までの医療歴:</th>
             <td><%= f.text_field :medical_history %></td>
           </tr>
           <tr>
-            <th scope="row">surgery_history</th>
+            <th scope="row">今までの手術歴:</th>
             <td><%= f.text_field :surgery_history %></td>
           </tr>
           <tr>
-            <th scope="row">icon</th>
+            <th scope="row">プロフィール画像:</th>
             <td>
-              <%= f.label :icon %>
+              <%= f.label :icon, 'アイコン選択' %>
               <%= f.file_field :icon, onchange: 'previewImage()', class: 'form-control mb-3', accept: 'image/*' %>
               <%= f.hidden_field :icon_cache %>
             </td>
@@ -48,7 +48,7 @@
             </td>
           </tr>
         </table>
-        <%= f.submit  class: "btn btn-primary" %>
+        <%= f.submit 'プロフィールを更新',  class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h1 class="card-title text-center mb-0">プロフィール</h1>
+          <h1 class="card-title text-center mb-0">マイプロフィール</h1>
         </div>
         <div class="card-body">
           <% if @profile.present? %>
@@ -22,19 +22,19 @@
                 <%= @profile.history_of_present_illness %>
               </div>
               <div class="form-group">
-                <strong>禁忌事項:</strong>
+                <strong>お身体に関する禁忌事項:</strong>
                 <%= @profile.contraindications %>
               </div>
               <div class="form-group">
-                <strong>医療歴:</strong>
+                <strong>今までの医療歴:</strong>
                 <%= @profile.medical_history %>
               </div>
               <div class="form-group">
-                <strong>手術歴:</strong>
+                <strong>今までの手術歴:</strong>
                 <%= @profile.surgery_history %>
               </div>
               <div class="form-group text-center">
-                <strong>アイコン:</strong><br>
+                <strong>プロフィール画像:</strong><br>
                 <%= image_tag @profile.icon.url, id: 'preview', size: '200x200', class: 'rounded-circle' %>
               </div>
             </div>
