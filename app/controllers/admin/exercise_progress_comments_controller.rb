@@ -11,6 +11,7 @@ class Admin::ExerciseProgressCommentsController < Admin::BaseController
     def create
         @exercise_progress_comments = ExerciseProgressComment.new(comment_params)
       if  @exercise_progress_comments.save
+        send_line_notification(@exercise_progress_comments)
         redirect_to admin_users_path, notice: 'Comment was successfully added.'
       else
         render :new
@@ -30,5 +31,27 @@ class Admin::ExerciseProgressCommentsController < Admin::BaseController
 
     def comment_params
         params.require(:exercise_progress_comment).permit(:comment, :exercise_progress_id)
+    end
+
+    def send_line_notification(comment)
+      exercise_progress = comment.exercise_progress
+      user = User.find(exercise_progress.user_id)
+      return unless user.line_id
+  
+      message = {
+        type: 'text',
+        text: "進捗にコメントがありました"
+      }
+  
+      client.push_message(user.line_id, message)
+    end
+  
+    private
+  
+    def client
+      @client ||= Line::Bot::Client.new { |config|
+        config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+        config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+      }
     end
 end
