@@ -74,3 +74,6 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'line-bot-api'
 gem 'dotenv-rails'
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "pg", "~> 1.5"
