@@ -9,12 +9,12 @@
 <h2>Exercise Plans</h2>
 <% @exercise_plans.each do |exercise_plan| %>
   <div class="card mb-3">
-    <div class="card-body">
       <h5 class="card-title">Training Menu: <%= exercise_plan.training_menu %></h5>
-      <p><strong>Progresse Keep:</strong> <%= @exercise_progresses.progresse_keep %></p>
-    </div>
+      <% end %>
   </div>
-<% end %>
+  <div class="card mb-3">
+      <p><strong>Progresse Keep:</strong> <%= @exercise_progresses.progresse_keep %></p>
+  </div>
 
 <h2>Comments</h2>
 <% @exercise_progress_comments.each do |comment| %>
