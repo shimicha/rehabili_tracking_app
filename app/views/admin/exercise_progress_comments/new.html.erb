@@ -1,25 +1,31 @@
+<% if @exercise_progresses %>
   <div class="card mb-3">
     <div class="card-body">
       <h5 class="card-title"><strong>Date:</strong> <%= @exercise_progresses.date %></h5>
     </div>
   </div>
-
+<% end %>
+  
 <h2>Exercise Plans</h2>
+<% if @exercise_plans %>
 <% @exercise_plans.each do |exercise_plan| %>
   <div class="card mb-3">
       <h5 class="card-title"> Training Menu: <%= exercise_plan.training_menu %></h5>
       <% end %>
   </div>
-  <div class="card mb-3">     
+  <div class="card mb-3">
+        
         <br><br>
-        <p><strong>Progress Keep:</strong><%= @exercise_progresses.progresse_keep %></p>  
+        <p><strong>Progress Keep:</strong><%= @exercise_progresses.progresse_keep %></p>
+        
   </div>
+  <% end %>
 
 
   <h2>Add Comment</h2>
-  <%= form_with model: [:admin, @exercise_progress_comments], url: admin_exercise_progress_comments_path(exercise_progress_id: @exercise_progress_id), local: true do |f| %>
-   
-      <%= f.hidden_field :exercise_progress_id, value: @exercise_progress_id %>
+  <%= form_with model: [:admin, @exercise_progress_comments], url: admin_exercise_progress_comments_path, local: true do |f| %>
+
+      <%= f.hidden_field :exercise_progress_id, value: @exercise_progresses.id %>
 
 
     <div class="form-group">
