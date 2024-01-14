@@ -3,12 +3,9 @@ class Admin::ExerciseProgressCommentsController < Admin::BaseController
   before_action :set_user_id, only: %i[new]
 
     def new
-        selected_date = params[:date].present? ? Date.parse(params[:date]) : Date.today
+        date = params[:date]
         @exercise_plans = ExercisePlan.where(user_id: @user_id)
-        @exercise_progresses = ExerciseProgress.find_by(user_id: @user_id, date: selected_date)
-
-        @exercise_progress = ExerciseProgress.where(user_id: @user_id, date: selected_date)
-        @exercise_progress_id = params[:exercise_progress_id]
+        @exercise_progresses = ExerciseProgress.find(params[:exercise_progress_id])
         @exercise_progress_comments = ExerciseProgressComment.new
 
     end
