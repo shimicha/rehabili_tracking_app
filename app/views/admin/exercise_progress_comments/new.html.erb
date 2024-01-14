@@ -1,36 +1,45 @@
-<% if @exercise_progresses %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title"><strong>Date:</strong> <%= @exercise_progresses.date %></h5>
-    </div>
-  </div>
-<% end %>
+<div class="container text-center">
+  <h1 class="my-5">日毎の進捗詳細</h1>
   
-<h2>Exercise Plans</h2>
-<% if @exercise_plans %>
-<% @exercise_plans.each do |exercise_plan| %>
-  <div class="card mb-3">
-      <h5 class="card-title"> Training Menu: <%= exercise_plan.training_menu %></h5>
-      <% end %>
-  </div>
-  <div class="card mb-3">
-        
-        <br><br>
-        <p><strong>Progress Keep:</strong><%= @exercise_progresses.progresse_keep %></p>
-        
-  </div>
+  <% if @exercise_progresses %>
+    <div class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title" style="font-weight: normal;">年月日: <%= @exercise_progresses.date %></h5>
+      </div>
+    </div>
   <% end %>
 
+  <h2 class="my-5">実施している自主訓練メニュー</h2>
+  <% if @exercise_plans %>
+    <% @exercise_plans.each do |exercise_plan| %>
+      <div class="card mb-3 shadow">
+        <div class="card-body">
+          <h5 class="card-title"><%= exercise_plan.training_menu %></h5>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 
-  <h2>Add Comment</h2>
-  <%= form_with model: [:admin, @exercise_progress_comments], url: admin_exercise_progress_comments_path, local: true do |f| %>
-
-      <%= f.hidden_field :exercise_progress_id, value: @exercise_progresses.id %>
-
-
-    <div class="form-group">
-      <%= f.label :comment %>
-      <%= f.text_area :comment, rows: 3, class: 'form-control' %>
+  <h2 class="text-center my-4">自主訓練をして感じたこと</h2>
+  <% if @exercise_progresses %>
+    <div class="card mb-3 shadow-lg">
+      <div class="card-body">
+        <p class="card-text"><%= @exercise_progresses.progresse_keep %></p>
+      </div>
     </div>
-    <%= f.submit 'Submit Comment', class: 'btn btn-primary' %>
-  <% end %> 
+  <% end %>
+</div>
+
+
+<div class="container text-center">
+<h2 class="my-5">コメントを追加</h2>
+<%= form_with model: [:admin, @exercise_progress_comments], url: admin_exercise_progress_comments_path, local: true do |f| %>
+  <%= f.hidden_field :exercise_progress_id, value: @exercise_progresses.id %>
+
+  <div class="form-group">
+    <%= f.label :comment,'投稿に対するフィードバックを記載する', class: 'font-weight-bold' %>
+    <%= f.text_area :comment, rows: 3, class: 'form-control shadow-sm' %>
+  </div>
+  <%= f.submit 'コメントを投稿', class: 'btn btn-primary btn-block my-3 shadow' %>
+<% end %>
+</div>

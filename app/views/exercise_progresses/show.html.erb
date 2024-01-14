@@ -1,26 +1,34 @@
-<h1>Exercise Progresse Details</h1>
-
-<div class="card mb-3">
-  <div class="card-body">
-    <h5 class="card-title"><strong>Date:</strong> <%= @exercise_progresses.date %></h5>
-  </div>
-</div>
-
-<h2>Exercise Plans</h2>
-<% @exercise_plans.each do |exercise_plan| %>
-  <div class="card mb-3">
-      <h5 class="card-title">Training Menu: <%= exercise_plan.training_menu %></h5>
-      <% end %>
-  </div>
-  <div class="card mb-3">
-      <p><strong>Progresse Keep:</strong> <%= @exercise_progresses.progresse_keep %></p>
-  </div>
-
-<h2>Comments</h2>
-<% @exercise_progress_comments.each do |comment| %>
-  <div class="card mb-3">
+<div class="container text-center">
+  <h1 class="my-5">日毎の進捗詳細</h1>
+  
+  <div class="card mb-3 shadow-sm">
     <div class="card-body">
-      <p><strong>Comment:</strong> <%= comment.comment %></p>
+      <h5 class="card-title" style="font-weight: normal;">年月日:<%= @exercise_progresses.date %></h5>
     </div>
   </div>
-<% end %>
+
+  <h2 class="my-5">実施している自主訓練メニュー</h2>
+  <% @exercise_plans.each do |exercise_plan| %>
+    <div class="card mb-3 shadow">
+      <div class="card-body">
+        <h5 class="card-title"><%= exercise_plan.training_menu %></h5>
+      </div>
+    </div>
+  <% end %>
+
+  <h2 class="text-center my-4">自主訓練をして感じたこと</h2>
+  <div class="card mb-3 shadow-lg">
+    <div class="card-body">
+      <p class="card-text"><%= @exercise_progresses.progresse_keep %></p>
+    </div>
+  </div>
+
+  <h2 class="my-5">セラピストからコメント</h2>
+  <% @exercise_progress_comments.each do |comment| %>
+    <div class="card mb-3 shadow">
+      <div class="card-body">
+        <p><%= comment.comment %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
