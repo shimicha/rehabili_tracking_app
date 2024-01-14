@@ -3,41 +3,41 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-body">
-          <h1 class="card-title text-center">プロフィール編集</h1>
+          <h1 class="card-title text-center">プロフィール新規作成</h1>
           <%= form_with model: @profile, local: true do |f| %>
             <div class="form-group">
-              <%= f.label :gender, class: 'font-weight-bold' %><br/>
+              <%= f.label :gender, '性別:', class: 'font-weight-bold' %><br/>
               <div class="form-check form-check-inline">
                 <%= f.radio_button :gender, :man, class: 'form-check-input' %>
-                <%= f.label :man, class: 'form-check-label' %>
+                <%= f.label :man, '男性:', class: 'form-check-label' %>
               </div>
               <div class="form-check form-check-inline">
                 <%= f.radio_button :gender, :woman, class: 'form-check-input' %>
-                <%= f.label :woman, class: 'form-check-label' %>
+                <%= f.label :woman, '女性:', class: 'form-check-label' %>
               </div>
             </div>
             <div class="form-group">
-              <%= f.label :age, class: 'font-weight-bold' %>
+              <%= f.label :age, '年齢:', class: 'font-weight-bold' %>
               <%= f.text_field :age, class: 'form-control' %>
             </div>
             <div class="form-group">
-              <%= f.label :history_of_present_illness, class: 'font-weight-bold' %>
+              <%= f.label :history_of_present_illness, '現在の病歴:', class: 'font-weight-bold' %>
               <%= f.text_field :history_of_present_illness, class: 'form-control' %>
             </div>
             <div class="form-group">
-              <%= f.label :contraindications, class: 'font-weight-bold' %>
+              <%= f.label :contraindications, 'お身体に関する禁忌事項:', class: 'font-weight-bold' %>
               <%= f.text_field :contraindications, class: 'form-control' %>
             </div>
             <div class="form-group">
-              <%= f.label :medical_history, class: 'font-weight-bold' %>
+              <%= f.label :medical_history, '今までの医療歴:', class: 'font-weight-bold' %>
               <%= f.text_field :medical_history, class: 'form-control' %>
             </div>
             <div class="form-group">
-              <%= f.label :surgery_history, class: 'font-weight-bold' %>
+              <%= f.label :surgery_history, '今までの手術歴:', class: 'font-weight-bold' %>
               <%= f.text_field :surgery_history, class: 'form-control' %>
             </div>
             <div class="form-group">
-              <%= f.label :icon, class: 'font-weight-bold' %>
+              <%= f.label :icon, 'プロフィール画像:', class: 'font-weight-bold' %>
               <%= f.file_field :icon, onchange: 'previewImage()', class: 'form-control', accept: 'image/*' %>
               <%= f.hidden_field :icon_cache %>
             </div>
