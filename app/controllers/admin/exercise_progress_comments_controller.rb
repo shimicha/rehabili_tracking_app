@@ -3,17 +3,15 @@ class Admin::ExerciseProgressCommentsController < Admin::BaseController
   before_action :set_user_id, only: %i[new]
 
     def new
-        date = params[:date]
         @exercise_plans = ExercisePlan.where(user_id: @user_id)
         @exercise_progresses = ExerciseProgress.find(params[:exercise_progress_id])
         @exercise_progress_comments = ExerciseProgressComment.new
-
     end
     
     def create
         @exercise_progress_comments = ExerciseProgressComment.new(comment_params)
       if  @exercise_progress_comments.save
-        redirect_to new_admin_exercise_progress_comment_path, notice: 'Comment was successfully added.'
+        redirect_to admin_users_path, notice: 'Comment was successfully added.'
       else
         render :new
       end
