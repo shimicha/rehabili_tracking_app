@@ -1,5 +1,19 @@
 class Admin::ProfilesController < Admin::BaseController
-    before_action :set_user_id, only: %i[index edit update]
+  before_action :set_user_id, only: %i[index new edit update]
+
+  def new
+      @profile = Profile.new
+  end
+
+  def create
+      @profile = Profile.new(profile_params)
+      if @profile.save
+        user_id = @profile.user_id 
+        redirect_to admin_profiles_path(user_id: user_id)
+      else
+        render :new
+      end
+  end
 
     def index
         user_id = params[:user_id]
