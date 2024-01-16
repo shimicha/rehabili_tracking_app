@@ -12,7 +12,7 @@ class Admin::ExerciseProgressCommentsController < Admin::BaseController
         @exercise_progress_comments = ExerciseProgressComment.new(comment_params)
       if  @exercise_progress_comments.save
         send_line_notification(@exercise_progress_comments)
-        redirect_to admin_users_path, notice: 'Comment was successfully added.'
+        redirect_to admin_users_path
       else
         render :new
       end

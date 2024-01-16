@@ -1,0 +1,5 @@
+default_url_options:
+  protcol: 'https'
+  host: 'rehabili-tracking-app.onrender.com'
+
+  
