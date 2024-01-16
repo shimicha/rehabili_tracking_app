@@ -28,7 +28,7 @@ class Admin::ProfilesController < Admin::BaseController
     def update
         @profile = Profile.find(params[:id])
       if @profile.update(profile_params)
-        redirect_to admin_profiles_path(user_id: @profile.user_id), notice: "プロフィールが更新されました。"
+        redirect_to admin_profiles_path(user_id: @profile.user_id)
       else
         render :edit
       end
