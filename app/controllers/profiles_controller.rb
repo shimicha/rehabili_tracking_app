@@ -22,9 +22,8 @@ end
 
 def update
   if @profile.update(profile_params)
-    redirect_to profiles_path, success: t('defaults.message.updated', item: Profile.model_name.human)
+    redirect_to profiles_path
   else
-    flash.now['danger'] = t('defaults.message.not_updated', item: Profile.model_name.human)
     render :edit
   end
 end

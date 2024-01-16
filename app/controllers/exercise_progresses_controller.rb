@@ -19,7 +19,7 @@ def create
     @exercise_progresses = ExerciseProgress.new(exercise_progress_params)
     @exercise_progresses.user_id = current_user.id
     if @exercise_progresses.save
-      redirect_to exercise_progresses_path, notice: 'Exercise Progresse was successfully created.'
+      redirect_to exercise_progresses_path
     else
       render :new
     end
