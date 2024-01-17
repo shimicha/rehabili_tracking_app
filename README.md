@@ -42,7 +42,7 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
 ■ 機能候補  
 ＃MVPリリース時に作っていたいもの  
 ⚪️ユーザーアカウントとプロフィール  
-- 患者のアカウント作成・ログイン機能
+- 患者のアカウント作成・ログイン機能  
   新規作成機能、login機能  
 - プロフィール情報の設定（年齢、性別、医療歴など）  
   Profile機能(CRUDで実装)  
@@ -63,7 +63,7 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
 
 ⚪️フィードバック機能  
 - 患者がエクササイズ後の感じや痛みを記録  
-  - 投稿機能  
+  投稿機能  
 - 理学療法士がフィードバックを提供  
   コメント機能  
 
