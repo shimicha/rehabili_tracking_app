@@ -48,6 +48,7 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
    - Profile機能(CRUDで実装)
  セラピストの管理者機能
    - admin機能
+ パスワードリセット機能
 
 ⚪️個別のエクササイズプラン
  理学療法士が患者ごとのプランを作成・編集
@@ -67,8 +68,8 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
    - コメント機能
 
 ⚪️通知機能
- 患者にエクササイズのリマインダーや理学療法士からのフィードバックを通知
-   - リマインダー機能(line)
+ 患者の進捗に理学療法士からコメント作成時やトレーニングメニュー作成時に通知
+   - lineのMessaging APIを使用した通知機能
 
 
 ＃本リリースまでに作っていたいもの
@@ -88,7 +89,7 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
  患者のアカウント作成・ログイン機能
    →　sorceryの認証ライブラリを使用してユーザー管理を実装する。
  セラピストの管理者機能
-   →  RailsAdminライブラリを使用し、管理者画面を持たせて特定のユーザーに管理者の権限を付与する。
+   →  ライブラリを使用せず、roleカラムを用いて管理者と一般で分けて特定のユーザーに管理者の権限を付与する。
 
 ⚪️進捗トラッキング機能
  患者が毎日のエクササイズやストレッチの完了を記録
@@ -99,11 +100,11 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
 ⚪️フィードバック機能
  患者がエクササイズ後の感じや痛みを記録
  理学療法士がフィードバックを提供
-   →  シンプルな掲示板またはコメント機能を導入する予定。
+   →  シンプルなコメント機能を導入。
 
 ⚪️通知機能
- 患者にエクササイズのリマインダーや理学療法士からのフィードバックを通知
-   →  LINEの公式APIを使用して、リマインダーや通知を送る機能を実装する。
+ 患者の進捗に理学療法士からコメント作成時やトレーニングメニュー作成時に通知 
+ → LINEの公式APIを使用して、通知を送る機能を実装。
 
 ⚪️分析とレポート機能
    →  Chart.jsで実施状況・進捗をグラフやチャートにして視覚的に表示する。
@@ -112,4 +113,4 @@ figma URL https://www.figma.com/file/kNRURugAsZGgOaFFM4b3Wg/%E7%84%A1%E9%A1%8C?t
    →  Active Record Encryptionを設定して、個人情報や医療データの暗号化し、センシティブな情報を安全に保管する。
 
 ER図
-[![Image from Gyazo](https://i.gyazo.com/156d217f34204aa12640ddb458b7b01b.png)](https://gyazo.com/156d217f34204aa12640ddb458b7b01b)
+[![Image from Gyazo](https://i.gyazo.com/6ff8a32b6ff5d42661f31b41211159d0.png)](https://gyazo.com/6ff8a32b6ff5d42661f31b41211159d0)
