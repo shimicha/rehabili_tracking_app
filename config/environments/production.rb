@@ -100,11 +100,7 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-<<<<<<< HEAD
   config.action_mailer.default_url_options = Settings.default_url_options.to_h
-=======
-
->>>>>>> main
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
