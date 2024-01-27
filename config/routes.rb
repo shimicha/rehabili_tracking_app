@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   resources :password_resets, only: %i[new create edit update]
+  resource :passwords, only: [:edit, :update]
 
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
