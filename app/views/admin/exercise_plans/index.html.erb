@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h1 class="text-center">実施訓練メニュー一覧</h1>
+
+  <%= link_to '新規作成', new_admin_exercise_plan_path(user_id: params[:user_id]), class: 'btn btn-success mb-3' %>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>トレーニングメニュー</th>
+        <th>メニュー説明</th>
+        <th>メニュー解説の画像</th>
+        <th>画像の補足</th>
+        <th>メニューの参考動画のURL</th>
+        <th>オプション</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @exercise_plans.each do |exercise_plan| %>
+        <tr>
+          <td><%= exercise_plan.training_menu %></td>
+          <td><%= exercise_plan.description %></td>
+          <td><% exercise_plan.images.each do |image| %>
+                <%= image_tag image.url, size: '50x50', class: 'img-square' if exercise_plan.images? %>
+              <% end %>
+          </td>
+          <td><%= exercise_plan.images_description %></td>
+          <td><%= link_to exercise_plan.movie_url, exercise_plan.movie_url, target: '_blank' %></td>
+          <td>
+            <%= link_to '編集', edit_admin_exercise_plan_path(exercise_plan), class: 'btn btn-primary' %>
+            <%= link_to '削除', admin_exercise_plan_path(exercise_plan), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

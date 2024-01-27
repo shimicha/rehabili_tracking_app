@@ -1,5 +1,13 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  before_create :generate_identifier
+
+  has_one :profile, dependent: :destroy
+  has_many :exercise_plans, dependent: :destroy
+  has_many :exercise_progresses
+  has_many :dashboards
+
+  enum role: { general: 0, admin: 1 }
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -8,4 +16,10 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, presence: true
   validates :name, presence: true, length: { maximum: 255 }
+
+  def generate_identifier
+    # 一意の識別子を生成（ここでは簡単のためSecureRandomを使用）
+    self.identifier = SecureRandom.hex(10)
+  end
+
 end
