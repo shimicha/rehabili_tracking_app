@@ -1,0 +1,71 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-title text-center mb-0">実施訓練メニューの新規作成</h1>
+        </div>
+        <div class="card-body">
+        <%= form_with model: [:admin, @exercise_plan], url: admin_exercise_plans_path(user_id: @user_id), local: true do |f| %>
+
+          <%= f.hidden_field :user_id, value: @user_id %>
+          
+            <div class="form-group">
+              <%= f.label :training_menu,'トレーニングメニュー', class: 'font-weight-bold' %>
+              <%= f.text_field :training_menu, class: 'form-control', required: true %>
+              <div class="invalid-feedback">
+                トレーニングメニューを入力してください。
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :description,'メニュー説明', class: 'font-weight-bold' %>
+              <%= f.text_area :description, class: 'form-control', required: true %>
+              <div class="invalid-feedback">
+                詳細を入力してください。
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :images,'メニュー解説の画像', class: 'font-weight-bold' %>
+              <%= f.file_field :images, multiple: true, class: 'form-control', accept: 'image/*' %>
+              <%= f.hidden_field :images_cache %>
+              <div class="invalid-feedback">
+                画像ファイルを選択してください。
+              </div>
+              <div class='mt-3 mb-3 text-center'>
+                <% if @exercise_plan.images.any? %>
+                  <% @exercise_plan.images.each do |image| %>
+                    <%= image_tag image.url, id: 'preview', size: '150x150', class: 'img-square' %>
+                  <% end %>
+                <% else %>
+                    <%= image_tag 'noimage.png', id: 'preview', size: '150x150', class: 'img-square' %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :images_description,'画像の補足', class: 'font-weight-bold' %>
+              <%= f.text_field :images_description, class: 'form-control', required: true %>
+              <div class="invalid-feedback">
+                画像の説明を入力してください。
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :movie_url,'メニューの参考動画のURL', class: 'font-weight-bold' %>
+              <%= f.text_field :movie_url, class: 'form-control', required: true %>
+              <div class="invalid-feedback">
+                動画のURLを入力してください。
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "作成する", class: "btn btn-primary btn-block" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

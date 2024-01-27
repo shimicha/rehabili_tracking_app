@@ -1,10 +1,9 @@
 class StaticPagesController < ApplicationController
-  def top
-  end
+  skip_before_action :require_login
 
-  def privacy_policy
-  end
+  def top;end
 
-  def terms_of_service
-  end
+  def privacy_policy;end
+
+  def terms_of_service;end
 end

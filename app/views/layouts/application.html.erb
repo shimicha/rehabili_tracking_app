@@ -9,15 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-turbolinks="false">
    <% if logged_in? %>
     <%= render 'shared/header' %>
    <% else %>
     <%= render 'shared/before_login_header' %>
    <% end %>
     <%= yield %>
-   <% unless current_page?(privacy_policy_path) || current_page?(terms_of_service_path) %>
     <%= render 'shared/footer' %>
-   <% end %>
   </body>
 </html>

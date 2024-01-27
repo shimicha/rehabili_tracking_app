@@ -1,0 +1,25 @@
+<h2 class="text-center">月別進捗一覧</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>月</th>
+      <th>最終更新日</th>
+      <th>詳細</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @monthly_data.each do |data| %>
+      <tr>
+        <td><%= data[:month] %></td>
+        <% if data[:latest_progress_date] %>
+        <td><%= data[:latest_progress_date].strftime("%Y-%m-%d") %></td>
+        <% else %>
+          <td>進捗記録が見つかりません</td>
+        <% end %>
+        <td>
+         <%= link_to '詳細', exercise_progresses_path(month: data[:month], user_id: current_user.id), class: 'btn btn-primary btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
