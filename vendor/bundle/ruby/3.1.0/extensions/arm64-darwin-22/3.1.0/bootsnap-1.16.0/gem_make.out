@@ -1,0 +1,15 @@
+current directory: /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+/Users/shimizuseiya/.rbenv/versions/3.1.2/bin/ruby -I /Users/shimizuseiya/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20231021-96005-tw88ao.rb extconf.rb
+creating Makefile
+
+current directory: /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/3.1.0/gems/bootsnap-1.16.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20231021-96005-9vo5g8/bootsnap

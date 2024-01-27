@@ -1,0 +1,15 @@
+current directory: /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/shimizuseiya/.rbenv/versions/3.1.2/bin/ruby -I /Users/shimizuseiya/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20231021-96005-awfdli.rb extconf.rb
+creating Makefile
+
+current directory: /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= clean
+
+current directory: /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\=
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/shimizuseiya/rehabili_tracking_app/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20231021-96005-kzds24/skiptrace/internal
