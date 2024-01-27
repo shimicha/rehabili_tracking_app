@@ -1,0 +1,27 @@
+<h2 class="text-center">実施する自主訓練メニュー</h2>
+<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>トレーニングメニュー</th>
+        <th>メニュー説明</th>
+        <th>メニュー解説の画像</th>
+        <th>画像の補足</th>
+        <th>メニューの参考動画のURL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @exercise_plans.each do |exercise_plan| %>
+        <tr>
+          <td><%= exercise_plan.training_menu %></td>
+          <td><%= exercise_plan.description %></td>
+          <td><% exercise_plan.images.each do |image| %>
+                <%= image_tag image.url, size: '50x50', class: 'img-square' if exercise_plan.images? %>
+              <% end %>
+          </td>
+          <td><%= exercise_plan.images_description %></td>
+          <td><%= link_to exercise_plan.movie_url, exercise_plan.movie_url, target: '_blank' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
