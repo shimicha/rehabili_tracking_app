@@ -1,6 +1,7 @@
 class Admin::BaseController < ApplicationController
     before_action :check_admin
     layout 'admin/layouts/application'
+    add_flash_types :success, :info, :warning, :danger
 
   private
 

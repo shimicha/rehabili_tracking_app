@@ -1,6 +1,6 @@
 User.create!(
   name: 'admin',
-  email: 'sxs.irohasu@gamil.com',
+  email: 'sample@hogehoge.jp',
   password: 'password',
   password_confirmation: 'password',
   role: :admin)

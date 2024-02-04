@@ -1,5 +1,5 @@
 class AddIdentifierToUsers < ActiveRecord::Migration[5.2]
   def change
-    add_column :users, :identifier, :string
+    add_column :users, :identifier, :string, unique: true
   end
 end
