@@ -19,9 +19,9 @@ def create
     @exercise_progresses = ExerciseProgress.new(exercise_progress_params)
     @exercise_progresses.user_id = current_user.id
     if @exercise_progresses.save
-      redirect_to exercise_progresses_path
+      redirect_to exercise_progresses_path, success: '進捗作成されました'
     else
-      render :new
+      redirect_to new_exercise_progress_path(user_id: @exercise_progresses.user_id), danger: '進捗作成に失敗しました'
     end
   end
   

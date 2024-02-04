@@ -1,5 +1,5 @@
 class Admin::ProfilesController < Admin::BaseController
-  before_action :set_user_id, only: %i[index new edit update]
+  before_action :set_user_id, only: %i[index new edit update create]
 
   def new
       @profile = Profile.new
@@ -9,8 +9,9 @@ class Admin::ProfilesController < Admin::BaseController
       @profile = Profile.new(profile_params)
       if @profile.save
         user_id = @profile.user_id 
-        redirect_to admin_profiles_path(user_id: user_id)
+        redirect_to admin_profiles_path(user_id: user_id), success: 'プロフィールが作成されました'
       else
+        flash.now['danger'] = 'プロフィール作成に失敗しました'
         render :new
       end
   end
@@ -28,8 +29,9 @@ class Admin::ProfilesController < Admin::BaseController
     def update
         @profile = Profile.find(params[:id])
       if @profile.update(profile_params)
-        redirect_to admin_profiles_path(user_id: @profile.user_id)
+        redirect_to admin_profiles_path(user_id: @profile.user_id), success: 'プロフィールが更新されました'
       else
+        flash.now['danger'] = 'プロフィールの更新に失敗しました'
         render :edit
       end
     end

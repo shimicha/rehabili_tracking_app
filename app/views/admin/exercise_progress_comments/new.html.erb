@@ -1,24 +1,26 @@
 <div class="container text-center">
   <h1 class="my-5">日毎の進捗詳細</h1>
-  
+
+  <h2 class="text-center my-4">進捗記録日</h2>
   <% if @exercise_progresses %>
-    <div class="card mb-3 shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title" style="font-weight: normal;">年月日: <%= @exercise_progresses.date %></h5>
+    <div class="card mb-3 shadow-sm ">
+      <div class="card-body mx-auto">
+        <p class="card-title" style="font-weight: normal;"><%= @exercise_progresses.date %></p>
       </div>
     </div>
   <% end %>
 
-  <h2 class="my-5">実施している自主訓練メニュー</h2>
+  <h2 class="text-center my-4">実施している自主訓練メニュー</h2>
   <% if @exercise_plans %>
     <% @exercise_plans.each do |exercise_plan| %>
-      <div class="card mb-3 shadow">
-        <div class="card-body">
-          <h5 class="card-title"><%= exercise_plan.training_menu %></h5>
+      <div class="card mb-3 shadow-lg">
+      <div class="card-body mx-auto">
+          <p class="card-title"><%= exercise_plan.training_menu %></p>
         </div>
+      <% end %>
       </div>
-    <% end %>
   <% end %>
+  
 
   <h2 class="text-center my-4">自主訓練をして感じたこと</h2>
   <% if @exercise_progresses %>

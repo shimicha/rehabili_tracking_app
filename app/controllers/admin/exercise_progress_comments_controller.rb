@@ -12,9 +12,9 @@ class Admin::ExerciseProgressCommentsController < Admin::BaseController
         @exercise_progress_comments = ExerciseProgressComment.new(comment_params)
       if  @exercise_progress_comments.save
         send_line_notification(@exercise_progress_comments)
-        redirect_to admin_users_path
+        redirect_to admin_users_path, success: 'コメントが作成されました'
       else
-        render :new
+        redirect_to request.referrer, danger: "コメントの保存に失敗しました" 
       end
     end
 

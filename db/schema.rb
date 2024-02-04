@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2024_01_11_112141) do
   create_table "exercise_plans", force: :cascade do |t|
     t.json "images"
     t.text "movie_url"
-    t.string "training_menu"
-    t.text "description"
+    t.string "training_menu", null: false
+    t.text "description", null: false
     t.text "images_description"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2024_01_11_112141) do
   end
 
   create_table "exercise_progress_comments", force: :cascade do |t|
-    t.text "comment"
+    t.text "comment", null: false
     t.integer "exercise_progress_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,9 +40,8 @@ ActiveRecord::Schema.define(version: 2024_01_11_112141) do
   end
 
   create_table "exercise_progresses", force: :cascade do |t|
-    t.date "date"
-    t.datetime "today_at"
-    t.text "progresse_keep"
+    t.date "date", null: false
+    t.text "progresse_keep", null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,14 +50,13 @@ ActiveRecord::Schema.define(version: 2024_01_11_112141) do
 
   create_table "profiles", force: :cascade do |t|
     t.integer "user_id"
-    t.string "name"
-    t.integer "age"
-    t.integer "gender"
-    t.string "icon"
-    t.text "history_of_present_illness"
-    t.text "contraindications"
-    t.text "medical_history"
-    t.text "surgery_history"
+    t.integer "age", null: false
+    t.integer "gender", null: false
+    t.string "icon", null: false
+    t.text "history_of_present_illness", null: false
+    t.text "contraindications", null: false
+    t.text "medical_history", null: false
+    t.text "surgery_history", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_profiles_on_user_id"

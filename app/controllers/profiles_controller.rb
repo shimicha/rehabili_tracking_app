@@ -2,7 +2,11 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :update]
 
 def new
-  @profile = Profile.new
+  if current_user.profile.present?
+    redirect_to edit_profile_path(current_user.profile)
+  else
+    @profile = Profile.new
+  end
 end
 
 def index
@@ -15,15 +19,20 @@ end
 
 def create
   @profile = current_user.build_profile(profile_params)
-  @profile.save
-  redirect_to profiles_path
+  if @profile.save
+  redirect_to profiles_path, success: 'プロフィール作成しました'
+  else
+  flash.now['danger'] = 'プロフィール作成に失敗しました'
+  render :new
+  end
 end
 
 
 def update
   if @profile.update(profile_params)
-    redirect_to profiles_path
+    redirect_to profiles_path, success: 'プロフィールが更新されました'
   else
+    flash.now['danger'] = 'プロフィールの更新に失敗しました'
     render :edit
   end
 end
