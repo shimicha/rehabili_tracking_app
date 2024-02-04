@@ -9,14 +9,15 @@ class Admin::UserSessionsController < Admin::BaseController
     @user = login(params[:email], params[:password])
     
     if @user
-      redirect_back_or_to admin_users_path
+      redirect_back_or_to admin_users_path, success: 'ログインしました'
     else
+      flash.now[:danger] = 'ログインに失敗しました'
       render :new
     end
   end
 
   def destroy
     logout                                     
-    redirect_to admin_login_path
+    redirect_to admin_login_path, success: 'ログアウトしました'
   end
 end
