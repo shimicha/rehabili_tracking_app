@@ -9,8 +9,9 @@ class Admin::ExercisePlansController < Admin::BaseController
     @exercise_plan = ExercisePlan.new(exercise_plan_params)
     if @exercise_plan.save
       send_notification(@exercise_plan.user_id, 'エクササイズプランが作成されました。')
-      redirect_to admin_exercise_plans_path(user_id: @exercise_plan.user_id)
+      redirect_to admin_exercise_plans_path(user_id: @exercise_plan.user_id), success: 'エクササイズプランが作成されました'
     else
+      flash.now['danger'] = 'エクササイズプランの作成に失敗しました'
       render :new
     end
   end
@@ -27,7 +28,7 @@ class Admin::ExercisePlansController < Admin::BaseController
     @exercise_plan = ExercisePlan.find(params[:id])
     if @exercise_plan.update(exercise_plan_params)
       send_notification(@exercise_plan.user_id, 'エクササイズプランが更新されました。')
-      redirect_to admin_exercise_plans_path(user_id: @exercise_plan.user_id)
+      redirect_to admin_exercise_plans_path(user_id: @exercise_plan.user_id), success: 'エクササイズプランが更新されました'
     else
       render :edit
     end
@@ -37,7 +38,7 @@ class Admin::ExercisePlansController < Admin::BaseController
     @exercise_plan = ExercisePlan.find(params[:id])
     user_id = @exercise_plan.user_id
     @exercise_plan.destroy
-    redirect_to admin_exercise_plans_path(user_id: user_id)
+    redirect_to admin_exercise_plans_path(user_id: user_id), success: 'エクササイズプランが削除されました'
   end
 
   private
