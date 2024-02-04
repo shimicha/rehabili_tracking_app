@@ -12,7 +12,7 @@
           
             <div class="form-group">
               <%= f.label :training_menu,'トレーニングメニュー', class: 'font-weight-bold' %>
-              <%= f.text_field :training_menu, class: 'form-control', required: true %>
+              <%= f.text_field :training_menu, class: 'form-control' %>
               <div class="invalid-feedback">
                 トレーニングメニューを入力してください。
               </div>
@@ -20,7 +20,7 @@
 
             <div class="form-group">
               <%= f.label :description,'メニュー説明', class: 'font-weight-bold' %>
-              <%= f.text_area :description, class: 'form-control', required: true %>
+              <%= f.text_area :description, class: 'form-control' %>
               <div class="invalid-feedback">
                 詳細を入力してください。
               </div>
@@ -46,7 +46,7 @@
 
             <div class="form-group">
               <%= f.label :images_description,'画像の補足', class: 'font-weight-bold' %>
-              <%= f.text_field :images_description, class: 'form-control', required: true %>
+              <%= f.text_field :images_description, class: 'form-control' %>
               <div class="invalid-feedback">
                 画像の説明を入力してください。
               </div>
@@ -54,7 +54,7 @@
 
             <div class="form-group">
               <%= f.label :movie_url,'メニューの参考動画のURL', class: 'font-weight-bold' %>
-              <%= f.text_field :movie_url, class: 'form-control', required: true %>
+              <%= f.text_field :movie_url, class: 'form-control' %>
               <div class="invalid-feedback">
                 動画のURLを入力してください。
               </div>

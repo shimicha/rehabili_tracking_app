@@ -4,8 +4,8 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :exercise_plans, dependent: :destroy
-  has_many :exercise_progresses
-  has_many :dashboards
+  has_many :exercise_progresses, dependent: :destroy
+  has_many :dashboards, dependent: :destroy
 
   enum role: { general: 0, admin: 1 }
 
@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :email, presence: true
   validates :name, presence: true, length: { maximum: 255 }
+  validates :identifier, uniqueness: true
 
   def generate_identifier
     # 一意の識別子を生成（ここでは簡単のためSecureRandomを使用）
