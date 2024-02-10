@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-lg-6">
       <div class="card">
         <div class="card-body text-center">
           <h1 class="card-title">Link Page</h1>
@@ -16,33 +16,33 @@
 
           <!-- LINEアカウントへのリンクを追加 -->
           <div class="mt-3">
-          <p>通知が届くように以下のリンクから<br>公式LINEアカウントを友達追加して下さい</p>
+            <p>通知が届くように以下のリンクから<br>公式LINEアカウントを友達追加して下さい</p>
 
-          <a href="https://lin.ee/fKbU5kQ"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
-          
+            <a href="https://lin.ee/fKbU5kQ"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+          </div>
+          <ul class="list-group list-group-flush mt-3">
+            <li class="list-group-item">
+              <i class="fas fa-user"></i>
+              <%= link_to 'プロフィール', profiles_path, class: 'btn btn-link btn-block' %>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-tasks"></i>
+              <%= link_to 'プラン確認', user_path(current_user.id), class: 'btn btn-link btn-block' %>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-chart-line"></i>
+              <%= link_to '進捗詳細ページ', exercise_progresses_path(user_id: current_user.id), class: 'btn btn-link btn-block' %>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-pen"></i>
+              <%= link_to '進捗記録を作成', new_exercise_progress_path(user_id: current_user.id), class: 'btn btn-link btn-block' %>
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-key"></i>
+              <%= link_to 'パスワード変更', new_password_reset_path, class: 'btn btn-link btn-block' %>
+            </li>
+          </ul>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <i class="fas fa-user"></i>
-            <%= link_to 'プロフィール', profiles_path, class: 'btn btn-link btn-block' %>
-          </li>
-          <li class="list-group-item">
-            <i class="fas fa-user-plus"></i>
-            <%= link_to 'プロフィール新規作成', new_profile_path, class: 'btn btn-link btn-block' %>
-          </li>
-          <li class="list-group-item">
-            <i class="fas fa-tasks"></i>
-            <%= link_to 'プラン確認', user_path(current_user.id), class: 'btn btn-link btn-block' %>
-          </li>
-          <li class="list-group-item">
-            <i class="fas fa-chart-line"></i>
-            <%= link_to '進捗確認ダッシューボード', dashboards_path(user_id: current_user.id), class: 'btn btn-link btn-block' %>
-          </li>
-          <li class="list-group-item">
-            <i class="fas fa-key"></i>
-            <%= link_to 'パスワード変更', new_password_reset_path, class: 'btn btn-link btn-block' %>
-          </li>
-        </ul>
       </div>
     </div>
   </div>

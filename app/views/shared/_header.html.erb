@@ -1,20 +1,26 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-secondary mb-3">
-  <%= link_to 'rehabili tracking app', root_path, class: 'navbar-brand' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <%= image_tag current_user.profile&.icon_url || 'icon.png', size: '60x60', class: 'rounded-circle mr15' %>
-      </li>
-      <li class="nav-item active">
-        <%= link_to 'TOPページ', new_top_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item active">
-        <span class="d-flex justify-content-center text-white"><%=current_user.name%></span>
-        <%= link_to 'ログアウト', logout_path, class: 'nav-link' %>
-      </li>
-    </ul>
-  </div>
-</nav>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark mb-3">
+    <h3><%= link_to 'rehabili tracking app', root_path, class: 'navbar-brand' %></h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav4">
+      <ul class="navbar-nav">
+        <li class="nav-item active d-flex align-items-center">
+          <%= link_to 'TOPページ', new_top_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item active d-flex align-items-center">
+          <%= link_to 'プラン確認', user_path(current_user.id), class: 'nav-link' %>
+        </li>
+        <li class="nav-item active d-flex align-items-center">
+          <%= link_to 'ログアウト', logout_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <h5><span class="d-flex justify-content-center text-white"><%= current_user.name %></span></h5>
+          <%= image_tag current_user.profile&.icon_url || 'icon.png', size: '60x60', class: 'rounded-circle mr15' %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+

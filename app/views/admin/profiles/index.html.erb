@@ -7,7 +7,10 @@
         </div>
         <div class="card-body">
           <% if @profile.present? %>
+          <div class="text-right mb-3">
             <%= link_to '編集', edit_admin_profile_path(user_id: params[:user_id], id: @profile), class: 'btn btn-success float-right' %>
+            <%= link_to '削除', admin_profile_path(user_id: params[:user_id], id: @profile), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger float-right' %>
+          </div>
           <% end %>
           <div class="profile-details">
             <% if @profile.present? %>
@@ -40,8 +43,8 @@
                 <%= image_tag @profile.icon.url, id: 'preview', size: '200x200', class: 'rounded-circle' %>
               </div>
             <% else %>
-              <p>プロフィールが存在しません。</p>
-              <%= link_to '新しいプロフィールを作成', new_admin_profile_path(user_id: params[:user_id]), class: 'btn btn-primary' %>
+              <p class="text-center">プロフィールが存在しません。</p>
+              <%= link_to '新しいプロフィールを作成', new_admin_profile_path(user_id: params[:user_id]), class: 'btn btn-primary btn-block' %>
             <% end %>
           </div>
         </div>
