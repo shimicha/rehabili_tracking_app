@@ -7,7 +7,10 @@
         </div>
         <div class="card-body">
           <% if @profile.present? %>
-            <%= link_to '編集', edit_profile_path(@profile), class: 'btn btn-success float-right' %>
+            <div class="text-right mb-3">
+              <%= link_to '編集', edit_profile_path(@profile), class: 'btn btn-success float-right' %>
+              <%= link_to '削除', profile_path(current_user.profile), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
+            </div>
             <div class="profile-details">
               <div class="form-group">
                 <strong>年齢:</strong>
@@ -39,8 +42,9 @@
               </div>
             </div>
           <% else %>
-            <p>プロフィールが存在しません。</p>
-          <% end %>
+          <p class="text-center">プロフィールが存在しません。</p>
+            <%= link_to 'プロフィール新規作成', new_profile_path, class: 'btn btn-primary btn-block' %>
+            <% end %>
         </div>
       </div>
     </div>

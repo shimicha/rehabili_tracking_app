@@ -1,23 +1,25 @@
 $(document).on('turbolinks:load', function () {
-    
     if ($('#admin-calendar').length) {
-        // Initialize the admin calendar
 
         var userId = new URLSearchParams(window.location.search).get('user_id');
+        var currentDate = new Date();
+        
 
+        // カレンダーを初期化
         var adminCalendar = $('#admin-calendar').fullCalendar({
-
-
-            // Calendar settings similar to `exercise_progresses.js`
-            defaultDate: new Date().toISOString().slice(0, 10),
-            events: '/admin/exercise_progress_comments.json?user_id=' + userId,
+            defaultDate: currentDate,
+            events: '/admin/exercise_progress_comments.json?user_id=' + userId, // exercise_progresseモデルに対応したパスを指定
+            // カレンダー上部を年月で表示させる
             titleFormat: 'YYYY年 M月',
+            // 曜日を日本語表示
             dayNamesShort: ['日', '月', '火', '水', '木', '金', '土'],
+            // ボタンのレイアウト
             header: {
                 left: '',
                 center: 'title',
                 right: 'today prev,next'
             },
+            // 終了時刻がないイベントの表示間隔
             defaultTimedEventDuration: '03:00:00',
             buttonText: {
                 prev: '前',
@@ -27,24 +29,58 @@ $(document).on('turbolinks:load', function () {
                 week: '週',
                 day: '日'
             },
+            // Drag & Drop & Resize
             editable: true,
+            // イベントの時間表示を２４時間に
             timeFormat: "HH:mm",
+            // イベントの色を変える
             eventColor: '#87cefa',
+            // イベントの文字色を変える
             eventTextColor: '#000000',
+            
             displayEventTime: false,
+            
             eventRender: function(event, element) {
+                
                 element.css("font-size", "0.8em");
                 element.css("padding", "5px");
-            }
 
+                // 土曜日の場合
+                if (event.start.day() === 6) { // 6は土曜日を表します
+                    element.addClass('fc-sat'); // カスタムCSSクラスを追加
+                }
+
+                // 日曜日の場合
+                if (event.start.day() === 0) { // 0は日曜日を表します
+                    element.addClass('fc-sun'); // カスタムCSSクラスを追加
+                }
+            },
+            // カレンダーが完全に描画された後に実行される関数
+            eventAfterAllRender: function(view) {
+                setDayColors();
+            }
         });
 
-        // Destroy the calendar before the Turbolinks cache is saved
+        // カスタムCSSクラスのスタイルを定義
+        function setDayColors() {
+            $('.fc-sat').css({
+                'color': '#0000FF', // 土曜日の文字色
+                'background-color': '#CCEEFF' // 土曜日の背景色
+            });
+
+            $('.fc-sun').css({
+                'color': '#FF0000', // 日曜日の文字色
+                'background-color': '#FFCCCF' // 日曜日の背景色
+            });
+        }
+
+        // カレンダーが破棄される前に処理を実行
         $(document).on('turbolinks:before-cache', function() {
             if (adminCalendar) {
                 adminCalendar.fullCalendar('destroy');
                 adminCalendar = null;
             }
         });
+        
     }
 });

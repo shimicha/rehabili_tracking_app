@@ -1,10 +1,17 @@
-<div class="d-flex flex-column min-vh-100">
-<footer class="mt-auto bg-secondary">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="navbar-nav ml-auto">
-        <%= link_to '利用規約', terms_of_service_path, class: 'nav-link' %>
-        <%= link_to 'プライバシーポリシー', privacy_policy_path, class: 'nav-link' %>
+<footer class="footer custom-margin bg-dark text-light text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <%= link_to '利用規約', terms_of_service_path, class: 'nav-link text-light' %>
       </div>
-    </nav>
-  </footer>
-</div>
+      <div class="col-md-6">
+        <%= link_to 'プライバシーポリシー', privacy_policy_path, class: 'nav-link text-light' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        &copy; 2024 shimizu seiya
+      </div>
+    </div>
+  </div>
+</footer>

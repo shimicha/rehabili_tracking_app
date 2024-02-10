@@ -5,8 +5,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :exercise_plans, dependent: :destroy
   has_many :exercise_progresses, dependent: :destroy
-  has_many :dashboards, dependent: :destroy
-
+  
   enum role: { general: 0, admin: 1 }
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
