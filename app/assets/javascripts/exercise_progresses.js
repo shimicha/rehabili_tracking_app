@@ -1,26 +1,10 @@
 $(document).on('turbolinks:load', function () {
     if ($('#calendar').length) {
-
         var currentDate = new Date();
-
         // カレンダーを初期化
         var calendar = $('#calendar').fullCalendar({
             defaultDate: currentDate,
-            googleCalendarApiKey: 'GOOGLE_CALENDAR_API_KEY',
-            eventSources: [
-                // Custom event source
-                {
-                    events: {
-                        url: '/exercise_progresses.json'
-                    }
-                },
-            
-                // Google Calendar holiday events
-                {
-                    googleCalendarId: 'ja.japanese#holiday@group.v.calendar.google.com',
-                    className: 'event_holiday'
-                }
-            ],
+            events: '/exercise_progresses.json', // exercise_progresseモデルに対応したパスを指定
             // カレンダー上部を年月で表示させる
             titleFormat: 'YYYY年 M月',
             // 曜日を日本語表示
@@ -37,9 +21,6 @@ $(document).on('turbolinks:load', function () {
                 prev: '前',
                 next: '次',
                 today: '今日',
-                month: '月',
-                week: '週',
-                day: '日'
             },
             // Drag & Drop & Resize
             editable: true,
@@ -51,8 +32,6 @@ $(document).on('turbolinks:load', function () {
             eventTextColor: '#000000',
             
             displayEventTime: false,
-
-            
             
             eventRender: function(event, element) {
                 
@@ -60,21 +39,20 @@ $(document).on('turbolinks:load', function () {
                 element.css("padding", "5px");
 
                 // 土曜日の場合
-                if (event.start.day() === 6) { // 6は土曜日を表します
+                if (event.start && event.start.day && event.start.day() === 6) { // 6は土曜日を表します
                     element.addClass('fc-sat'); // カスタムCSSクラスを追加
                 }
 
                 // 日曜日の場合
-                if (event.start.day() === 0) { // 0は日曜日を表します
+                if (event.start && event.start.day && event.start.day() === 0) { // 0は日曜日を表します
                     element.addClass('fc-sun'); // カスタムCSSクラスを追加
                 }
             },
             // カレンダーが完全に描画された後に実行される関数
-            eventAfterAllRender: function(view) {
+            eventAfterAllRender: function() {
                 setDayColors();
             }
         });
-
         // カスタムCSSクラスのスタイルを定義
         function setDayColors() {
             $('.fc-sat').css({
@@ -87,8 +65,6 @@ $(document).on('turbolinks:load', function () {
                 'background-color': '#FFCCCF' // 日曜日の背景色
             });
         }
-
-
         // カレンダーが破棄される前に処理を実行
         $(document).on('turbolinks:before-cache', function() {
             if (calendar) {
@@ -96,6 +72,5 @@ $(document).on('turbolinks:load', function () {
                 calendar = null;
             }
         });
-        
     }
 });

@@ -1,4 +1,5 @@
 class ExerciseProgressesController < ApplicationController
+
 def index
   @exercise_progresses = ExerciseProgress.where(user_id: current_user.id)
 end
