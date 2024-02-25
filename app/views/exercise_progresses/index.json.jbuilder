@@ -6,3 +6,4 @@
   json.title "実施済"
   puts exercise_progress.date
 end
+

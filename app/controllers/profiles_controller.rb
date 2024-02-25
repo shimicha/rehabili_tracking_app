@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:edit, :update]
+  before_action :set_profile, only: [:edit, :update, :destroy]
 
 def new
   if current_user.profile.present?
@@ -27,6 +27,10 @@ def create
   end
 end
 
+def destroy
+  @profile.destroy
+  redirect_to profiles_path, success: 'プロフィールが削除されました'
+end
 
 def update
   if @profile.update(profile_params)

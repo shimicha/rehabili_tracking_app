@@ -1,5 +1,5 @@
 class Admin::ProfilesController < Admin::BaseController
-  before_action :set_user_id, only: %i[index new edit update create]
+  before_action :set_user_id, only: %i[index new edit update create destroy]
 
   def new
       @profile = Profile.new
@@ -24,6 +24,13 @@ class Admin::ProfilesController < Admin::BaseController
     def edit
         user_id = params[:user_id]
         @profile = Profile.find_by(user_id: user_id)
+    end
+
+    def destroy
+      @profile = Profile.find(params[:id])
+      user_id = @profile.user_id
+      @profile.destroy
+      redirect_to admin_profiles_path(user_id: user_id), success: 'プロフィールが削除されました'
     end
   
     def update
